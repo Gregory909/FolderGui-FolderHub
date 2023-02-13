@@ -191,7 +191,7 @@ GodMode()
 
 end)
 
-Tab1Section:NewButton("Invisible", "Invisible", function()
+Tab1Section:NewButton("Invisible(NEW)", "Invisible", function()
 print("Executed")
 
 loadstring(game:HttpGet("https://pastebin.com/raw/4kAxG4Er",true))()
@@ -418,7 +418,7 @@ for i,v in pairs(game:GetDescendants()) do
     end
  end) 
  
-Tab5Section:NewButton("InvisAutofarmCoins", "Farm Coin", function()
+Tab5Section:NewButton("InvisAutofarmCoins(NEW)", "Farm Coin", function()
 print("Executed")
 
 loadstring(game:HttpGet("https://pastebin.com/raw/4kAxG4Er",true))()
