@@ -1,3 +1,45 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Frame.BackgroundTransparency = 0.500
+Frame.Position = UDim2.new(0.858712733, 0, 0.0237762257, 0)
+Frame.Size = UDim2.new(0.129513338, 0, 0.227972031, 0)
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.Size = UDim2.new(2, 1, 2, 0)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "FolderHub"
+TextButton.TextColor3 = Color3.fromRGB(25, 50, 15)
+TextButton.TextScaled = true
+TextButton.TextSize = 50.000
+TextButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextStrokeTransparency = 0.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Down:Connect(function()
+	game:GetService("VirtualInputManager"):SendKeyEvent(true, "LeftShift" , false , game)
+end)
+
+UITextSizeConstraint.Parent = TextButton
+UITextSizeConstraint.MaxTextSize = 40
+ 
+wait(1.1)
+
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
 local Window = Library.CreateLib("FolderHub", "Ocean")
 
@@ -14,7 +56,7 @@ local Tab4Section = Tab4:NewSection("Lobby, Map")
 local Tab5 = Window:NewTab("AutofarmToggle")
 local Tab5Section = Tab5:NewSection("Coins, XP")
 local Tab6 = Window:NewTab("Credits")
-local Tab6Section = Tab6:NewSection("Made by VaniaPerets#8776")
+local Tab6Section = Tab6:NewSection("Made by VaniaPerets#8776, Devs EclipseHub")
 local Tab7 = Window:NewTab("Settings") 
 local Tab7Section = Tab7:NewSection("Set something..")
 
@@ -153,11 +195,11 @@ end
 coroutine.wrap(HLKTLMK_fake_script)()
 end)
 
-Tab1Section:NewSlider("SpeedToggle", "Speedhack", 100, 16, function(v)
+Tab1Section:NewTextBox("SpeedToggle", "Speedhack", function(v)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
 end)
 
-Tab1Section:NewSlider("JumpToggle", "jumphack", 250, 50, function(s)
+Tab1Section:NewTextBox("JumpToggle", "JumpPower", function(s)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
@@ -191,7 +233,7 @@ GodMode()
 
 end)
 
-Tab1Section:NewButton("Invisible(NEW)", "Invisible", function()
+Tab1Section:NewButton("Invisible", "Invisible", function()
 print("Executed")
 
 loadstring(game:HttpGet("https://pastebin.com/raw/4kAxG4Er",true))()
@@ -215,11 +257,11 @@ print("Executed")
 loadstring(game:HttpGet("https://pastebin.com/raw/GuBiX19e",true))()
 end)
 
-Tab2Section:NewButton("Xray(*e* keybind) ", "Xray", function()
+Tab2Section:NewButton("Xray(*x* keybind) ", "Xray", function()
    print("Executed")
    
  --made by ScareCrowV3RM
-local xrayHotkey = Enum.KeyCode.E
+local xrayHotkey = Enum.KeyCode.X
 
 local uis = game:GetService("UserInputService")
 
@@ -271,7 +313,7 @@ Tab2Section:NewButton("Player Name", "Name", function()
 end)
 
 Tab2Section:NewButton("Player Chams", "Name", function()
-   print("Executed")
+  print("Executed")
    
  loadstring(game:HttpGet("https://pastebin.com/raw/jQjQxeeu", true))()
 end)
@@ -288,10 +330,10 @@ Tab3Section:NewButton("Kill Player", "Fe Yeet Gui", function()
 	loadstring(game:HttpGet("https://pastebin.com/raw/saMtiek2",true))()
 end)
 
-Tab3Section:NewButton("AimBot(Beta)", "Aim to murder", function()
+Tab3Section:NewButton("Aimbot", "load it", function()
     print("Executed")
 	
-	loadstring(game:HttpGet("https://pastebin.com/raw/0YqDtUbn",true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/WetCheezit/Releases/main/No-Scope-Arcade/Silent%20aim.lua"))()
 end)
 
 Tab3Section:NewButton("Grab Gun(only innocent)", "grab guns",function()
@@ -306,7 +348,7 @@ Tab3Section:NewButton("Grab Gun(only innocent)", "grab guns",function()
     end
  end)
  
-Tab3Section:NewSlider("Hitbox(only murder)"," Hit your damage", 200, 0, function(value)
+Tab3Section:NewTextBox("Hitbox(only murder)"," Hit your damage", function(value)
     print("Executed")
     
     _G.HeadSize = value
@@ -418,7 +460,7 @@ for i,v in pairs(game:GetDescendants()) do
     end
  end) 
  
-Tab5Section:NewButton("InvisAutofarmCoins(NEW)", "Farm Coin", function()
+Tab5Section:NewButton("InvisAutofarmCoins", "Farm Coin", function()
 print("Executed")
 
 loadstring(game:HttpGet("https://pastebin.com/raw/4kAxG4Er",true))()
@@ -431,6 +473,6 @@ for i,v in pairs(game:GetDescendants()) do
     end
  end) 
  
- Tab7Section:NewKeybind("Hide Script", "Turn off..", Enum.KeyCode.I, function()
+ Tab7Section:NewKeybind("Hide Script", "Turn off..", Enum.KeyCode.LeftShift, function()
 	Library:ToggleUI()
 end)
