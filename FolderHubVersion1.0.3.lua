@@ -41,7 +41,7 @@ UITextSizeConstraint.MaxTextSize = 40
 wait(1.1)
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("FolderHub", "Ocean")
+local Window = Library.CreateLib("FolderHub", "DarkTheme")
 
 -- Tabs
 
@@ -57,8 +57,10 @@ local Tab5 = Window:NewTab("AutofarmToggle")
 local Tab5Section = Tab5:NewSection("Coins, XP")
 local Tab6 = Window:NewTab("Credits")
 local Tab6Section = Tab6:NewSection("Made by VaniaPerets#8776, Devs EclipseHub")
-local Tab7 = Window:NewTab("Settings") 
-local Tab7Section = Tab7:NewSection("Set something..")
+local Tab7= Window:NewTab("AnimationToggle(BETA)")
+local Tab7Section = Tab7:NewSection("Sit, Headless and others..") 
+local Tab8 = Window:NewTab("Settings") 
+local Tab8Section = Tab8:NewSection("Set something..")
 
 -- Buttons/Windows/Idk
 
@@ -203,6 +205,14 @@ Tab1Section:NewTextBox("JumpToggle", "JumpPower", function(s)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
+Tab1Section:NewToggle("Shift Run", "Out of my way", function(run)
+if run then
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
+else
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end
+end)
+
 Tab1Section:NewButton("God Mode", "god", function()
 print("Executed")
 
@@ -257,63 +267,14 @@ print("Executed")
 loadstring(game:HttpGet("https://pastebin.com/raw/GuBiX19e",true))()
 end)
 
-Tab2Section:NewButton("Xray(*x* keybind) ", "Xray", function()
-   print("Executed")
-   
- --made by ScareCrowV3RM
-local xrayHotkey = Enum.KeyCode.X
-
-local uis = game:GetService("UserInputService")
-
-
-local xrayOn = false
-
-
-uis.InputBegan:Connect(function(inp, processed)
- 
- 
- if processed then return end
- 
- 
- if inp.KeyCode == xrayHotkey then
-  
-  
-  xrayOn = not xrayOn
-  
-  
-  for i, descendant in pairs(workspace:GetDescendants()) do
-    
-   if descendant:IsA("BasePart") then
-    
-    if xrayOn then
-     
-     if not descendant:FindFirstChild("OriginalTransparency") then
-      
-      local originalTransparency = Instance.new("NumberValue")
-      originalTransparency.Name = "OriginalTransparency"
-      originalTransparency.Value = descendant.Transparency
-      originalTransparency.Parent = descendant
-     end
-     
-     descendant.Transparency = 0.5
-     
-    else
-     descendant.Transparency = descendant.OriginalTransparency.Value
-    end
-   end
-  end
- end
-end)
-end)
-
 Tab2Section:NewButton("Player Name", "Name", function()
    print("Executed")
    
- loadstring(game:HttpGet("https://pastebin.com/raw/vMrw90Rd", true))()
+loadstring(game:HttpGet("https://pastebin.com/raw/3hcWWm3q", true))()
 end)
 
 Tab2Section:NewButton("Player Chams", "Name", function()
-  print("Executed")
+   print("Executed!")
    
  loadstring(game:HttpGet("https://pastebin.com/raw/jQjQxeeu", true))()
 end)
@@ -324,30 +285,88 @@ Tab2Section:NewButton("Player Line", " Line", function()
  loadstring(game:HttpGet("https://pastebin.com/raw/burXVTFw", true))()
 end)
 
+Tab2Section:NewButton("Gun ESP", "See Gun", function(state)
+while wait(0.9) do
+for i, gundrop in ipairs(workspace:GetDescendants()) do
+if gundrop:FindFirstChild("GunDrop") then
+if not gundrop:FindFirstChild("EspBox") then
+if gundrop ~= game.Players.LocalPlayer.Character then
+local esp = Instance.new("BoxHandleAdornment", gundrop) 
+esp.Adornee = gundrop
+esp.ZIndex = 0
+esp.Size = Vector3.new(1, 2, 1)
+esp.Transparency = 0.39
+esp.Color3 = Color3.fromRGB(255,255,0)
+esp.AlwaysOnTop = true
+esp.Name = "EspBox" 
+end
+end
+end
+end
+end
+end)
+
+Tab2Section:NewButton("Coins ESP", "See Coins", function()
+while wait(0.9) do
+for i, coin in ipairs(workspace:GetDescendants()) do
+if coin:FindFirstChild("Coin") then
+if not coin:FindFirstChild("EspBox") then
+if coin ~= game.Players.LocalPlayer.Character then
+local esp = Instance.new("BoxHandleAdornment", coin) 
+esp.Adornee = coin
+esp.ZIndex = 0
+esp.Size = Vector3.new(2, 1, 1)
+esp.Transparency = 0.67
+esp.Color3 = Color3.fromRGB(238,64,0)
+esp.AlwaysOnTop = true
+esp.Name = "EspBox" 
+end
+end
+end
+end
+end
+end)
+
 Tab3Section:NewButton("Kill Player", "Fe Yeet Gui", function()
     print("Executed")
 	
 	loadstring(game:HttpGet("https://pastebin.com/raw/saMtiek2",true))()
 end)
 
+Tab3Section:NewButton("Fling(NEW)", "!!Get out!!", function()
+    print("Executed")
+	
+loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
+end)
+
 Tab3Section:NewButton("Aimbot", "load it", function()
     print("Executed")
 	
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/WetCheezit/Releases/main/No-Scope-Arcade/Silent%20aim.lua"))()
+	getgenv().Settings = {
+ 
+   Fov = 90,
+ 
+   Hitbox = "Head",
+ 
+   FovCircle = true,
+ 
+}
 end)
 
 Tab3Section:NewButton("Grab Gun(only innocent)", "grab guns",function()
-   print("Executed")
-   
-   for i,v in pairs(game:GetDescendants()) do
+    local lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    wait(0.3)
+        for i,v in pairs(game:GetDescendants()) do
     if v.Name == 'GunDrop' then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-    wait(2.5)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+    wait(2.2)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = LastCFrame
+  wait(0.6)
+ lastCFrame = false
     end
     end
  end)
- 
+
 Tab3Section:NewTextBox("Hitbox(only murder)"," Hit your damage", function(value)
     print("Executed")
     
@@ -456,6 +475,8 @@ for i,v in pairs(game:GetDescendants()) do
     if v.Name == 'Coin' then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
     wait(2.2)
+    else
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
     end
     end
  end) 
@@ -463,8 +484,13 @@ for i,v in pairs(game:GetDescendants()) do
 Tab5Section:NewButton("InvisAutofarmCoins", "Farm Coin", function()
 print("Executed")
 
+wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-153, 243, 109)
+wait(0.9)
 loadstring(game:HttpGet("https://pastebin.com/raw/4kAxG4Er",true))()
-
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108, 138, 37)
+wait(2)
 for i,v in pairs(game:GetDescendants()) do
     if v.Name == 'Coin' then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
@@ -473,6 +499,20 @@ for i,v in pairs(game:GetDescendants()) do
     end
  end) 
  
- Tab7Section:NewKeybind("Hide Script", "Turn off..", Enum.KeyCode.LeftShift, function()
+Tab7Section:NewButton("Sit", "Anim", function()
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/e sit2" ,"All")
+end) 
+
+Tab7Section:NewLabel("Others animation in development")
+ 
+ Tab8Section:NewKeybind("Hide Script", "Turn off..", Enum.KeyCode.LeftShift, function()
 	Library:ToggleUI()
+end)
+
+Tab8Section:NewColorPicker("Color FolderHub", "Change You Color FolderHub", Color3.fromRGB(0,0,0), function(color)
+    for theme, color in pairs(themes) do
+    Section:NewColorPicker(Ocean, "Nothing Happened"..theme, color, function(color2)
+        Library:ChangeColor(theme, color3)
+    end)
+end
 end)
