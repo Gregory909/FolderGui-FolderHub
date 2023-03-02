@@ -294,9 +294,9 @@ if gundrop ~= game.Players.LocalPlayer.Character then
 local esp = Instance.new("BoxHandleAdornment", gundrop) 
 esp.Adornee = gundrop
 esp.ZIndex = 0
-esp.Size = Vector3.new(1, 2, 1)
-esp.Transparency = 0.39
-esp.Color3 = Color3.fromRGB(255,255,0)
+esp.Size = Vector3.new(2, 1, 1)
+esp.Transparency = 0.67
+esp.Color3 = Color3.fromRGB(07,142,35)
 esp.AlwaysOnTop = true
 esp.Name = "EspBox" 
 end
@@ -340,17 +340,7 @@ loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua")
 end)
 
 Tab3Section:NewButton("Aimbot", "load it", function()
-    print("Executed")
-	
-	getgenv().Settings = {
- 
-   Fov = 90,
- 
-   Hitbox = "Head",
- 
-   FovCircle = true,
- 
-}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
 end)
 
 Tab3Section:NewTextBox("Bring Player", "Freeze Players", function(name)
@@ -405,15 +395,15 @@ Tab3Section:NewButton("Giant Legs", "So big legs", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg Resize'))()
 end)
 
-Tab3Section:NewButton("Grab Gun(only innocent)", "grab guns",function()
-    local lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-    wait(0.3)
+Tab3Section:NewKeybind("Grab Gun(only innocent)", "grab guns",  Enum.KeyCode.G, function()
+lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    wait(0.2)
         for i,v in pairs(game:GetDescendants()) do
     if v.Name == 'GunDrop' then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-    wait(2.2)
-  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = LastCFrame
-  wait(0.6)
+    wait(1)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
+  wait(0.1)
  lastCFrame = false
     end
     end
@@ -472,6 +462,23 @@ bomb(199, 7)
 end
 end)
 
+Tab3Section:NewToggle("AutoGrabGun", "Grab it", function(state)
+    if state then
+        lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    wait(0.1)
+        for i,v in pairs(game:GetDescendants()) do
+    if v.Name == 'GunDrop' then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+    wait(1)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
+  wait(0.1)
+ lastCFrame = false
+    end
+    end
+    else
+    end
+end)
+
 Tab3Section:NewTextBox("Hitbox(only murder)"," Hit your damage", function(value)
     print("Executed")
     
@@ -493,6 +500,28 @@ end
 end
 end
 end)
+end)
+
+Tab3Section:NewTextBox("View Player"," View your enemies", function(args, speaker)
+	StopFreecam()
+	local players = getPlayer(args[1], speaker)
+	for i,v in pairs(players) do
+		if viewDied then
+			viewDied:Disconnect()
+			viewChanged:Disconnect()
+		end
+		viewing = Players[v]
+		workspace.CurrentCamera.CameraSubject = viewing.Character
+		local function viewDiedFunc()
+			repeat wait() until Players[v].Character ~= nil and getRoot(Players[v].Character)
+			workspace.CurrentCamera.CameraSubject = viewing.Character
+		end
+		viewDied = Players[v].CharacterAdded:Connect(viewDiedFunc)
+		local function viewChangedFunc()
+			workspace.CurrentCamera.CameraSubject = viewing.Character
+		end
+		viewChanged = workspace.CurrentCamera:GetPropertyChangedSignal("CameraSubject"):Connect(viewChangedFunc)
+	end
 end)
 
 Tab4Section:NewButton("Lobby", "Goto lobby", function()
@@ -607,6 +636,10 @@ for i,v in pairs(game:GetDescendants()) do
 Tab7Section:NewButton("Sit", "Anim", function()
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/e sit2" ,"All")
 end) 
+
+Tab7Section:NewButton("Get All Emotes", "...", function()
+require(Modules.EmoteModule).GeneratePage({"headless","zombie","zen","ninja","floss","dab"},Client.PlayerGui.MainGUI.Game:FindFirstChild("Emotes"),'Free Emotes')
+end)
 
 Tab7Section:NewLabel("Others animation in development")
  
