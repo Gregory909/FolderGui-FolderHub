@@ -1,3 +1,15 @@
+wait(0.9)
+game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Loading",["Text"] = "Getting Started.. "})
+wait(3)
+game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Loading",["Text"] = "Getting Service.."})
+wait(2)
+game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Loading",["Text"] = "Getting Scripts.. "})
+wait(1.2)
+local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://232127604"
+Sound:Play()
+game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Loaded",["Text"] = "This script Made by VaniaPerets#8776"})
+wait(1)
 -- Gui to Lua
 -- Version: 3.2
 
@@ -24,7 +36,7 @@ TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.BackgroundTransparency = 1.000
 TextButton.Size = UDim2.new(2, 1, 2, 0)
 TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "FolderHub"
+TextButton.Text = "DarkCheatClient"
 TextButton.TextColor3 = Color3.fromRGB(25, 50, 15)
 TextButton.TextScaled = true
 TextButton.TextSize = 50.000
@@ -38,10 +50,10 @@ end)
 UITextSizeConstraint.Parent = TextButton
 UITextSizeConstraint.MaxTextSize = 40
  
-wait(1.1)
+wait(1)
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("FolderHub", "DarkTheme")
+local Window = Library.CreateLib("DarkCheatClient", "DarkTheme")
 
 -- Tabs
 
@@ -209,7 +221,7 @@ end)
 
 Tab1Section:NewToggle("Shift Run", "Out of my way", function(run)
 if run then
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25
 else
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 end
@@ -247,8 +259,15 @@ end)
 
 Tab1Section:NewButton("Invisible", "Invisible", function()
 print("Executed")
-
+lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait(0.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+wait(0.3)
 loadstring(game:HttpGet("https://pastebin.com/raw/4kAxG4Er",true))()
+wait(0.8)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
+wait(0.5)
+lastCFrame = false
 end)
 
 Tab1Section:NewButton("Fly PC", "FlyPc", function()
@@ -267,22 +286,6 @@ Tab1Section:NewButton("Click Tp Tool", "goto", function()
 print("Executed")
 
 loadstring(game:HttpGet("https://pastebin.com/raw/GuBiX19e",true))()
-end)
-
-Tab2Section:NewToggle("X-Ray", "View(no esp)", function(xray)
-if xray then
-    for _,v in pairs(obj:GetChildren()) do
-        if (v:IsA("BasePart")) and not v.Parent:FindFirstChild("Humanoid") then
-            v.LocalTransparencyModifier = 0.75
-            end
-         end
-else
-    for _,v in pairs(obj:GetChildren()) do
-        if (v:IsA("BasePart")) and not v.Parent:FindFirstChild("Humanoid") then
-            v.LocalTransparencyModifier = 0
-            end
-            end
-end
 end)
 
 Tab2Section:NewButton("Player Name", "Name", function()
@@ -357,12 +360,7 @@ Tab3Section:NewButton("Fling(NEW)", "!!Get out!!", function()
 loadstring(game:HttpGet("https://shattered-gang.lol/scripts/fe/touch_fling.lua"))()
 end)
 
-Tab3Section:NewButton("Aimbot", "load it", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
-end)
-
-Tab3Section:NewTextBox("Bring Player", "Freeze Players", function(name)
-Target = name
+Tab3Section:NewButton("Bring Player", "Freeze Players", function()
 
 NOW = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 game.Players.LocalPlayer.Character.Humanoid.Name = 1
@@ -391,19 +389,14 @@ if char1 and char2 then
 char1:MoveTo(char2.Head.Position)
 end
 end
-tp(game.Players[Target], game.Players.LocalPlayer)
+tp(game.Players, game.Players.LocalPlayer)
 wait()
-tp(game.Players[Target], game.Players.LocalPlayer)
+tp(game.Players, game.Players.LocalPlayer)
 wait()
-getout(game.Players.LocalPlayer, game.Players[Target])
+getout(game.Players.LocalPlayer, game.Players)
 wait()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = NOW
 end)
-
-Tab3Section:NewTextBox("Teleport Player", "wth", function(value)
-local Target = value
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Target].LocalPlayer.Character.HumanoidRootPart.CFrame
-end) 
 
 Tab3Section:NewButton("Give Tools", "Give Someone your tools", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/k778UByk"))()
@@ -412,20 +405,6 @@ end)
 Tab3Section:NewButton("Giant Legs", "So big legs", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg Resize'))()
 end)
-
-Tab3Section:NewKeybind("Grab Gun(only innocent)", "grab guns",  Enum.KeyCode.G, function()
-lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-    wait(0.2)
-        for i,v in pairs(game:GetDescendants()) do
-    if v.Name == 'GunDrop' then
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-    wait(1)
-  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
-  wait(0.1)
- lastCFrame = false
-    end
-    end
- end)
 
 Tab3Section:NewButton("Crash Server", "Bomb server", function()
 local char = game:GetService('Players').LocalPlayer.Character or nil
@@ -480,24 +459,63 @@ bomb(199, 7)
 end
 end)
 
-Tab3Section:NewToggle("AutoGrabGun", "Grab it", function(state)
-    if state then
-        lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-    wait(0.1)
+Tab3Section:NewTextBox("Spectate Player", "spectate", function(value)
+local player = game.Players[qwe].LocalPlayer
+local camera = game.Workspace.CurrentCamera
+
+function UpdateCamera()
+    if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local pos = player.Character.HumanoidRootPart.Position
+        camera.CFrame = CFrame.new(pos + Vector3.new(0, 5, -10), pos)
+    end
+end
+
+camera.CameraType = Enum.CameraType.Scriptable
+camera.CFrame = CFrame.new(0, 5, -10)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    UpdateCamera()
+end)
+end)
+
+Tab3Section:NewLabel("Innocent Section")
+
+Tab3Section:NewKeybind("Grab Gun(only innocent)", "grab guns",  Enum.KeyCode.G, function()
+lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    wait(0.2)
         for i,v in pairs(game:GetDescendants()) do
     if v.Name == 'GunDrop' then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
     wait(1)
+    if Client.Backpack:FindFirstChild("Gun") then
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
   wait(0.1)
  lastCFrame = false
     end
     end
-    else
     end
+    if not v.Name == 'GunDrop' then
+    game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Notification",["Text"] = "GunDrop not dropped! Please,wait when GunDrop is spawned! "})
+  end
+ end)
+
+Tab3Section:NewButton("Gun Checker", "Check Gun Status", function()
+if game.GetService("Workspace"):FindFirstChild("GunDrop") then
+game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Notification",["Text"] = "Gun Dropped"})
+else
+game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Notification",["Text"] = "Gun Not Dropped"})
+end
 end)
 
-Tab3Section:NewTextBox("Hitbox(only murder)"," Hit your damage", function(value)
+Tab3Section:NewLabel("Sheriff Section")
+
+Tab3Section:NewButton("Aimbot", "load it", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
+end)
+
+Tab3Section:NewLabel("MurderSection") 
+
+Tab3Section:NewTextBox("Hitbox"," Hit your damage", function(value)
     print("Executed")
     
     _G.HeadSize = value
@@ -518,34 +536,6 @@ end
 end
 end
 end)
-end)
-
-Tab3Section:NewButton("Respawn", "Respawn", function()
-Character.Head:Remove()
-		Humanoid.BreakJointsOnDeath = false
-		Humanoid.Health = 0
-end)
-
-Tab3Section:NewTextBox("View Player"," View your enemies", function(args, speaker)
-	StopFreecam()
-	local players = getPlayer(args[1], speaker)
-	for i,v in pairs(players) do
-		if viewDied then
-			viewDied:Disconnect()
-			viewChanged:Disconnect()
-		end
-		viewing = Players[v]
-		workspace.CurrentCamera.CameraSubject = viewing.Character
-		local function viewDiedFunc()
-			repeat wait() until Players[v].Character ~= nil and getRoot(Players[v].Character)
-			workspace.CurrentCamera.CameraSubject = viewing.Character
-		end
-		viewDied = Players[v].CharacterAdded:Connect(viewDiedFunc)
-		local function viewChangedFunc()
-			workspace.CurrentCamera.CameraSubject = viewing.Character
-		end
-		viewChanged = workspace.CurrentCamera:GetPropertyChangedSignal("CameraSubject"):Connect(viewChangedFunc)
-	end
 end)
 
 Tab4Section:NewButton("Lobby", "Goto lobby", function()
@@ -684,6 +674,10 @@ Tab9Section:NewLabel("Best Scripts for Any Games")
 Tab9Section:NewButton("Infinite Yield", "Infinite Yield", function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
 end)
+
+Tab9Section:NewButton("RemoteSpy", "See events", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/infyiff/backup/main/audiologger.lua'),true))()
+end) 
 
 Tab9Section:NewLabel("mm2 scripts")
 
