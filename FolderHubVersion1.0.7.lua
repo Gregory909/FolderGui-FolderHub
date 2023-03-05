@@ -493,19 +493,8 @@ lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
  lastCFrame = false
     end
     end
-    end
-    if not v.Name == 'GunDrop' then
-    game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Notification",["Text"] = "GunDrop not dropped! Please,wait when GunDrop is spawned! "})
   end
  end)
-
-Tab3Section:NewButton("Gun Checker", "Check Gun Status", function()
-if game.GetService("Workspace"):FindFirstChild("GunDrop") then
-game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Notification",["Text"] = "Gun Dropped"})
-else
-game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DarkCheatClient Notification",["Text"] = "Gun Not Dropped"})
-end
-end)
 
 Tab3Section:NewLabel("Sheriff Section")
 
