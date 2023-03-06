@@ -459,25 +459,6 @@ bomb(199, 7)
 end
 end)
 
-Tab3Section:NewTextBox("Spectate Player", "spectate", function(value)
-local player = game.Players[qwe].LocalPlayer
-local camera = game.Workspace.CurrentCamera
-
-function UpdateCamera()
-    if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-        local pos = player.Character.HumanoidRootPart.Position
-        camera.CFrame = CFrame.new(pos + Vector3.new(0, 5, -10), pos)
-    end
-end
-
-camera.CameraType = Enum.CameraType.Scriptable
-camera.CFrame = CFrame.new(0, 5, -10)
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    UpdateCamera()
-end)
-end)
-
 Tab3Section:NewLabel("Innocent Section")
 
 Tab3Section:NewKeybind("Grab Gun(only innocent)", "grab guns",  Enum.KeyCode.G, function()
@@ -486,7 +467,7 @@ lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         for i,v in pairs(game:GetDescendants()) do
     if v.Name == 'GunDrop' then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-    wait(1.3)
+    wait(0.2)
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
   wait(0.1)
  lastCFrame = false
@@ -525,6 +506,8 @@ end
 end)
 end)
 
+Tab4Section:NewLabel("Lobby")
+
 Tab4Section:NewButton("Lobby", "Goto lobby", function()
     print("Executed")
 	
@@ -536,6 +519,14 @@ Tab4Section:NewButton("Voting Room", "Goto votingroom", function()
 	
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108, 141, 86)
 end)
+
+Tab4Section:NewButton("Under Lobby", "Goto Under Lobby", function()
+    print("Executed")
+	
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-153, 243, 109)
+end)
+
+Tab4Section:NewLabel("Maps") 
 
 Tab4Section:NewButton("Map(House 2)", "Goto House 2", function()
     print("Executed")
@@ -589,19 +580,13 @@ end)
 Tab4Section:NewButton("Map(nStudio)", "Goto nStudio", function()
     print("Executed")
 	
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(145, 50, -3000)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(365, 26, 2403)
 end)
 
 Tab4Section:NewButton("Map(Factory 1)", "Goto Mansion 2", function()
     print("Executed")
 	
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-940, 17, -1956)
-end)
-
-Tab4Section:NewButton("Under Lobby", "Goto Under Lobby", function()
-    print("Executed")
-	
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-153, 243, 109)
 end)
 
 Tab5Section:NewButton("AutofarmCoin", "Farm Coin", function()
@@ -611,7 +596,7 @@ for i,v in pairs(game:GetDescendants()) do
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
     wait(2.2)
     else
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
     end
     end
  end) 
