@@ -486,14 +486,12 @@ lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         for i,v in pairs(game:GetDescendants()) do
     if v.Name == 'GunDrop' then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-    wait(1)
-    if Client.Backpack:FindFirstChild("Gun") then
+    wait(1.3)
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
   wait(0.1)
  lastCFrame = false
     end
     end
-  end
  end)
 
 Tab3Section:NewLabel("Sheriff Section")
