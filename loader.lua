@@ -14,7 +14,7 @@ Tab1Section:NewLabel("Key System is 1 linkvertise and 1 pastebin")
 
 Tab1Section:NewTextBox("Enter Key Here", "enter key for loader(no hard)", function(value)
 
-local KeyCode = "BHmTGd7H"
+local KeyCode = "O2dp9sgs0ksoakskdhsksjdvskw"
 
 if value == KeyCode  then
 
@@ -28,13 +28,13 @@ wait(0.9)
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
 
-local Window = Library.CreateLib("DCC Key System", "DarkTheme")
+local Window = Library.CreateLib("DCC Loader", "DarkTheme")
 
 -- Tabs
 
-local Tab1 = Window:NewTab("KeySystem")
+local Tab1 = Window:NewTab("mm2")
 
-local Tab1Section = Tab1:NewSection("Enter key for Loader Scripts")
+local Tab1Section = Tab1:NewSection("mm2 scripts")
 
 -- Nothing
 
@@ -50,7 +50,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/VaniaPerets/FolderGui
 
 end)
 
-Tab1Section:NewButton("DDC Commands(mm2)", "Hub", function()
+Tab1Section:NewButton("DDC Commands(mm2)(in development)", "Hub", function()
 
 loadstring(game:HttpGet("https://pastebin.com/raw/ANUKRMHC"))()
 
