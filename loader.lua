@@ -14,7 +14,7 @@ Tab1Section:NewLabel("Key System is 1 linkvertise and 1 pastebin")
 
 Tab1Section:NewTextBox("Enter Key Here", "enter key for loader(no hard)", function(value)
 
-local KeyCode = "O2dp9sgs0ksoakskdhsksjdvskw"
+local KeyCode = "ejskwixbwjsixhshxidjwhshsjwidbd"
 
 if value == KeyCode  then
 
