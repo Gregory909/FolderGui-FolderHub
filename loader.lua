@@ -56,6 +56,10 @@ loadstring(game:HttpGet("https://pastebin.com/raw/ANUKRMHC"))()
 
 end)
 
+Tab1Section:NewButton("DCC Hub Plus", "Load it", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/VaniaPerets/FolderGui-FolderHub/main/DDCHubPlus.lua')))()
+end)
+
 else
 
 game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DCC Key System",["Text"] = "Checking key.."})
