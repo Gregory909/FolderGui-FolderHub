@@ -74,7 +74,7 @@ end)
 
 Tab1Section:NewButton("Get Key", " Get Key here..", function()
 
-setclipboard("https://link-target.net/640423/darkcheatclient-keysystem")
+setclipboard("https://pastebin.com/sErBLQdN")
 
 game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "DCC Key System",["Text"] = "Copied to Clipboard! Paste it in browser!"})
 
