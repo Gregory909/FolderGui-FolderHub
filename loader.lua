@@ -40,7 +40,7 @@ local Tab1Section = Tab1:NewSection("mm2 scripts")
 
 Tab1Section:NewButton("DDC Hub", "Hub", function()
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/VaniaPerets/FolderGui-FolderHub/main/DarkCheatClient(Hub)Version1.0.9.lua", true))()
+loadstring(game:HttpGet("https://pastebin.com/raw/jQjQxeeu", true))()
 
 end)
 
