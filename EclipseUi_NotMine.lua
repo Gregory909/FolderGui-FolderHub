@@ -46,7 +46,7 @@ function Library:Main(title, kbind)
 
 	Top.AnchorPoint = Vector2.new(0.5, 0.5)
 
-	Top.BackgroundColor3 = Color3.fromRGB(255, 129, 3)
+	Top.BackgroundColor3 = Color3.fromRGB(255,255,255)
 
 	Top.Position = UDim2.new(0.5, 0, 0.358816326, 0)
 
@@ -566,7 +566,7 @@ function Library:Main(title, kbind)
 
 			ToggleIcon.Parent = ToggleBack
 
-			ToggleIcon.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+			ToggleIcon.BackgroundColor3 = Color3.fromRGB(255,48,48)
 
 			ToggleIcon.Position = UDim2.new(0.92900002, 0, 0.0399999991, 0)
 
@@ -608,13 +608,13 @@ function Library:Main(title, kbind)
 
 					IsToggled = true
 
-					game:GetService("TweenService"):Create(ToggleIcon, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(255, 129, 3)}):Play()
+					game:GetService("TweenService"):Create(ToggleIcon, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(48,255,48)}):Play()
 
 				else
 
 					IsToggled = false
 
-					game:GetService("TweenService"):Create(ToggleIcon, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}):Play()
+					game:GetService("TweenService"):Create(ToggleIcon, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(255, 48, 48)}):Play()
 
 				end
 
