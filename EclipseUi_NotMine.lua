@@ -80,7 +80,7 @@ function Library:Main(title, kbind)
 
 	TabHolder.Active = true
 
-	TabHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TabHolder.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 
 	TabHolder.BackgroundTransparency = 1.000
 
@@ -662,7 +662,7 @@ function Library:Main(title, kbind)
 
 			Slider.Parent = SliderBack
 
-			Slider.BackgroundColor3 = Color3.fromRGB(255, 129, 3)
+			Slider.BackgroundColor3 = Color3.fromRGB(0,35,35)
 
 			Slider.Size = UDim2.new(0, 60, 0, 25)
 
