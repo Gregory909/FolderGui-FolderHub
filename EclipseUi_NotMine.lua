@@ -46,7 +46,7 @@ function Library:Main(title, kbind)
 
 	Top.AnchorPoint = Vector2.new(0.5, 0.5)
 
-	Top.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	Top.BackgroundColor3 = Color3.fromRGB(0,0,0)
 
 	Top.Position = UDim2.new(0.5, 0, 0.358816326, 0)
 
