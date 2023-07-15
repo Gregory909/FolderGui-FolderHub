@@ -490,7 +490,7 @@ function Library:Main(title, kbind)
 
 			Button.MouseButton1Up:Connect(function()
 
-				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(130,130,130)}):Play()
+				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(35,35,25)}):Play()
 
 			end)
 
