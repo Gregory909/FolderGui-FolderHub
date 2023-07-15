@@ -484,13 +484,13 @@ function Library:Main(title, kbind)
 
 			Button.MouseButton1Down:Connect(function()
 
-				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(255, 129, 3)}):Play()
+				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(54,54,54)}):Play()
 
 			end)
 
 			Button.MouseButton1Up:Connect(function()
 
-				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(35, 35, 35)}):Play()
+				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(130,130,130)}):Play()
 
 			end)
 
@@ -662,7 +662,7 @@ function Library:Main(title, kbind)
 
 			Slider.Parent = SliderBack
 
-			Slider.BackgroundColor3 = Color3.fromRGB(0,35,35)
+			Slider.BackgroundColor3 = Color3.fromRGB(181,181,181)
 
 			Slider.Size = UDim2.new(0, 60, 0, 25)
 
