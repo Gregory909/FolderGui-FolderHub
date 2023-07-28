@@ -280,7 +280,10 @@ function Library:Main(title, kbind)
 
 	local TabHolded = {}
 
-	
+	function Liblary:SetColor(color)
+        TabHolder.BackgroundColor3 = color
+	Top.BackgroundColor3 = color
+	end) 
 
 	function TabHolded:Tab(name)
 
