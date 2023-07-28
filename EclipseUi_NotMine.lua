@@ -438,7 +438,7 @@ function Library:Main(title, kbind)
 
 			Button.Parent = Hub
 
-			Button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+			Button.BackgroundColor3 = Color3.fromRGB(35,35,35)
 
 			Button.Position = UDim2.new(0.234748006, 0, 0, 0)
 
@@ -490,7 +490,7 @@ function Library:Main(title, kbind)
 
 			Button.MouseButton1Up:Connect(function()
 
-				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(35,35,25)}):Play()
+				game:GetService("TweenService"):Create(Button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(35,35,35)}):Play()
 
 			end)
 
