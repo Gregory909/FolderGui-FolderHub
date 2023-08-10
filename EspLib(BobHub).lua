@@ -23,6 +23,7 @@ local bill = Instance.new("BillboardGui",obj)
 textlabel.TextStrokeTransparency = 0
 textlabel.TextYAlignment = Enum.TextYAlignment.Bottom
 textlabel.ZIndex = 0
+Instance.new("UIStroke", textlabel)
 end
 
 function esplib:removetextobject(obj)
@@ -46,7 +47,7 @@ line.Visible = true
 else
 line.Visible = false
 end
-rs.Stepped:Wait(1)
+RS.Stepped:Wait(1)
 line:Remove()
 end
 
