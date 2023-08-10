@@ -5,7 +5,7 @@ local Workspace = game:GetService("Workspace")
 local cam = Workspace.CurrentCamera
 local worldToViewportPoint = cam.worldToViewportPoint
 
-function esplib:addtextobject(obj, color, objadorn, text)
+function esplib:addtextobject(obj, color, objadorn, text, textsize)
 local bill = Instance.new("BillboardGui",obj)
     bill.Name = "BobHubText"
     bill.AlwaysOnTop = true
@@ -14,7 +14,7 @@ local bill = Instance.new("BillboardGui",obj)
     bill.Enabled = true
     bill.Adornee = objadorn
     local textlabel = Instance.new("TextLabel",bill)
-    textlabel.TextSize = 20
+    textlabel.TextSize = textsize
     textlabel.Text = text
     textlabel.Font = Enum.Font.SourceSans
     textlabel.BackgroundTransparency = 1
