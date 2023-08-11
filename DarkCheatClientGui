@@ -1050,7 +1050,7 @@ gamemods:Toggle("Silent Aim", false, function(state)
 getgenv().SheriffAim = state
 end)
 
-gamemode:Slider("Gun Accuracy", function(val)
+gamemode:Slider("Gun Accuracy", 25, 100, function(val)
 getgenv().GunAccuracy = tostring(val)
 end)
 
