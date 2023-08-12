@@ -980,6 +980,8 @@ end)
 
 gamemods:Label("Innocent Section", Color3.fromRGB(48,255,48))
 
+gamemods:Label("Grab Gun Keybind *G*", Color3.fromRGB(255,255,255)) 
+
 gamemods:Button("Grab Gun", function()
  for i,v in pairs(game.Workspace:GetDescendants()) do
  if v.Name == "GunDrop" then
@@ -1054,6 +1056,8 @@ gamemods:Slider("Gun Accuracy", 25, 100, 25, function(val)
 getgenv().GunAccuracy = tostring(val)
 end)
 
+gamemods:Label("Shoot Murder Keybind *C*", Color3.fromRGB(255,255,255)) 
+
 gamemods:Button("Shoot Murder", function()
 for _,v in pairs(game.Players:GetPlayers()) do
 if v.Character ~= nil and v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
@@ -1105,6 +1109,8 @@ getgenv().AimingAt = val
 end, "HumanoidRootPart")
 
 gamemods:Label("Murder Section", Color3.fromRGB(255,48,48))
+
+gamemods:Label("Kill All Keybind *K*", Color3.fromRGB(255,255,255)) 
 
 gamemods:Button("Kill Sheriff", function()
 for _,v in pairs(game.Players:GetPlayers()) do
@@ -1790,6 +1796,71 @@ blor.Size = 2
 color.Contrast = 0.3
 color.Saturation = 0.2
 color.TintColor = Color3.fromRGB(255,252,224)
+end)
+
+game:GetService("UserInputService").InputEnded:connect(function(input) 
+            if input.KeyCode == Enum.KeyCode.G then
+                for i,v in pairs(game.Workspace:GetDescendants()) do
+ if v.Name == "GunDrop" then
+ lastCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+ wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0, -3, 0)
+    moveto(v.CFrame, 0.5)
+    wait(0.5)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastCFrame
+  wait(0.1)
+ lastCFrame = nil
+ end
+ end
+    end        
+end)
+
+game:GetService("UserInputService").InputEnded:connect(function(input) 
+            if input.KeyCode == Enum.KeyCode.K then
+              for i,v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+if v.Name == "Knife" then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+for i,g in pairs(Players:GetPlayers()) do
+if g ~= lp and not getgenv().Whilelisted then
+wait(0.1)
+g.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,-1)
+wait(0.1)
+g.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,-1)
+wait(0.1)
+g.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,-1)
+wait(0.1)
+g.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,-1)
+wait(0.1)
+g.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,-1)
+end
+end
+end
+end  
+    end        
+end)
+
+game:GetService("UserInputService").InputEnded:connect(function(input) 
+            if input.KeyCode == Enum.KeyCode.C then
+               for _,v in pairs(game.Players:GetPlayers()) do
+if v.Character ~= nil and v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
+for i,b in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+if b.Name == "Gun" then
+check = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait(0.2)
+looptptomurd = RS.RenderStepped:Connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,3)
+end)
+wait(5.5)
+looptptomurd:Disconnect()
+wait(0.8)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = check
+wait(0.1)
+check = nil
+end
+end
+end
+end 
+    end        
 end)
 
 coroutine.wrap(function()
