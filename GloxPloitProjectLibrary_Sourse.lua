@@ -65,7 +65,7 @@ gloxploitprojecttabholder.BackgroundTransparency = 0
 gloxploitprojecttabholder.Position = UDim2.new(0, 30, 0, 50)
 gloxploitprojecttabholder.Size = UDim2.new(0, 150, 0, 225)
 gloxploitprojecttabholder.ScrollBarThickness = 0
-gloxploitprojecttabholder.CanvasSize = UDim2.new(0, 0, 1, 0)
+gloxploitprojecttabholder.CanvasSize = UDim2.new(0, 0, 0, 0)
 
 local ULL1 = Instance.new("UIListLayout")
 ULL1.Parent = gloxploitprojecttabholder
@@ -81,7 +81,7 @@ gloxploitprojecthubholder.BackgroundTransparency = 0
 gloxploitprojecthubholder.Position = UDim2.new(0, 185, 0, 50)
 gloxploitprojecthubholder.Size = UDim2.new(0, 235, 0, 225)
 gloxploitprojecthubholder.ScrollBarThickness = 0
-gloxploitprojecthubholder.CanvasSize = UDim2.new(0, 0, 1, 0)
+gloxploitprojecthubholder.CanvasSize = UDim2.new(0, 0, 0, 0)
 
 local ULL2 = Instance.new("UIListLayout")
 ULL2.Parent = gloxploitprojecthubholder
