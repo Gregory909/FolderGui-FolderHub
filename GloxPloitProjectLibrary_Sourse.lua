@@ -76,18 +76,28 @@ end)
 local TabsForHold = {}
 
 function TabsForHold:NewTab(title)
-
+local GuiTab = Instance.new("Frame")
 local NewTab = Instance.new("TextButton")
 local HubForTab = Instance.new("ScrollingFrame")
 
+GuiTab.Name = "GuiTab"
+GuiTab.Size = UDim2.new(0, 130, 0, 30)
+GuiTab.BackgroundColor3 = Color3.fromRGB(50,50,50)
+GuiTab.BackgroundTransparency = 1
+GuiTab.BorderColor3 = Color3.fromRGB(35,35,35)
+GuiTab.BorderSizePixel = 1
+GuiTab.Active = true
+GuiTab.Draggable = false
+GuiTab.Parent = gloxploitprojecttabholder
+
 NewTab.Name = "Tab"
-NewTab.Size = UDim2.new(0, 150, 0, 30)
+NewTab.Size = UDim2.new(0, 130, 0, 30)
 NewTab.BackgroundColor3 = Color3.fromRGB(50,50,50)
 NewTab.BorderColor3 = Color3.fromRGB(35,35,35)
 NewTab.BorderSizePixel = 1
 NewTab.Active = true
 NewTab.Draggable = false
-NewTab.Parent = gloxploitprojecttabholder
+NewTab.Parent = GuiTab
 NewTab.Font = Enum.Font.SourceSansBold
 NewTab.Text = title
 NewTab.TextStrokeTransparency = 0.9
