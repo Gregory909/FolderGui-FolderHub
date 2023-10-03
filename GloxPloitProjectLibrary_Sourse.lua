@@ -75,11 +75,8 @@ end)
 
 local TabsForHold = {}
 
-function TabsForHold:NewTab(title)
+function TabsForHold:AddTab(title)
 local GuiTab = Instance.new("Frame")
-local NewTab = Instance.new("TextButton")
-local HubForTab = Instance.new("ScrollingFrame")
-
 GuiTab.Name = "GuiTab"
 GuiTab.Size = UDim2.new(0, 130, 0, 30)
 GuiTab.BackgroundColor3 = Color3.fromRGB(50,50,50)
@@ -90,6 +87,7 @@ GuiTab.Active = true
 GuiTab.Draggable = false
 GuiTab.Parent = gloxploitprojecttabholder
 
+local NewTab = Instance.new("TextButton")
 NewTab.Name = "Tab"
 NewTab.Size = UDim2.new(0, 130, 0, 30)
 NewTab.BackgroundColor3 = Color3.fromRGB(50,50,50)
@@ -104,6 +102,7 @@ NewTab.TextStrokeTransparency = 0.9
 NewTab.TextColor3 = Color3.fromRGB(255,255,255)
 NewTab.TextSize = 16
 
+local HubForTab = Instance.new("ScrollingFrame")
 HubForTab.Name = "HubForTab"
 HubForTab.Parent = gloxploitprojectmain
 HubForTab.Active = true
