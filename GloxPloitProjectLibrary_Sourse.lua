@@ -24,6 +24,10 @@ gloxploitprojectmain.Active = true
 gloxploitprojectmain.Draggable = true
 gloxploitprojectmain.Parent = screengui
 
+local gloxploitprojectuicorner = Instance.new("UICorner")
+gloxploitprojectuicorner.Parent = gloxploitprojectmain
+gloxploitprojectuicorner.CornerRadius = 0.40
+
 local gloxploitprojecttitle = Instance.new("TextLabel")
 gloxploitprojecttitle.Name = "Title"
 gloxploitprojecttitle.Size = UDim2.new(0, 400, 0, 30)
@@ -64,29 +68,6 @@ gloxploitprojecttabholder.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 gloxploitprojecttabholder.BackgroundTransparency = 0
 gloxploitprojecttabholder.Position = UDim2.new(0, 30, 0, 50)
 gloxploitprojecttabholder.Size = UDim2.new(0, 150, 0, 225)
-gloxploitprojecttabholder.ScrollBarThickness = 0
-gloxploitprojecttabholder.CanvasSize = UDim2.new(0, 0, 0, 0)
-
-local ULL1 = Instance.new("UIListLayout")
-ULL1.Parent = gloxploitprojecttabholder
-ULL1.HorizontalAlignment = Enum.HorizontalAlignment.Center
-ULL1.SortOrder = Enum.SortOrder.LayoutOrder
-
-local gloxploitprojecthubholder = Instance.new("ScrollingFrame")
-gloxploitprojecthubholder.Name = "Hub Hold"
-gloxploitprojecthubholder.Parent = gloxploitprojectmain
-gloxploitprojecthubholder.Active = true
-gloxploitprojecthubholder.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
-gloxploitprojecthubholder.BackgroundTransparency = 0
-gloxploitprojecthubholder.Position = UDim2.new(0, 185, 0, 50)
-gloxploitprojecthubholder.Size = UDim2.new(0, 235, 0, 225)
-gloxploitprojecthubholder.ScrollBarThickness = 0
-gloxploitprojecthubholder.CanvasSize = UDim2.new(0, 0, 0, 0)
-
-local ULL2 = Instance.new("UIListLayout")
-ULL2.Parent = gloxploitprojecthubholder
-ULL2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-ULL2.SortOrder = Enum.SortOrder.LayoutOrder
 
 gloxploitprojectclose.MouseButton1Click:Connect(function()
 for i,c in pairs(game.CoreGui:GetDescendants()) do
@@ -125,8 +106,6 @@ HubForTab.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 HubForTab.BackgroundTransparency = 0
 HubForTab.Position = UDim2.new(0, 0, 0 ,0)
 HubForTab.Size = UDim2.new(0, 235, 0, 225)
-HubForTab.ScrollBarThickness = 0
-HubForTab.CanvasSize = UDim2.new(0, 0, 1, 0)
 
 NewTab.MouseButton1Click:Connect(function()
 for i,v in pairs(gloxploitprojecttabholder:GetDescendants()) do
