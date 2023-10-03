@@ -78,7 +78,7 @@ gloxploitprojecthubholder.Size = UDim2.new(0, 235, 0, 225)
 gloxploitprojecthubholder.ScrollBarThickness = 0
 gloxploitprojecthubholder.CanvasSize = UDim2.new(0, 0, 1, 0)
 
-gloxploitprojectclose.Mouse1Click:Connect(function()
+gloxploitprojectclose.MouseButton1Click:Connect(function()
 for i,c in pairs(game.CoreGui:GetDescendants()) do
 if c.Name == "GloxPloitProject" then
 c:Destroy()
@@ -118,7 +118,7 @@ HubForTab.Size = UDim2.new(0, 235, 0, 225)
 HubForTab.ScrollBarThickness = 0
 HubForTab.CanvasSize = UDim2.new(0, 0, 1, 0)
 
-NewTab.Mouse1Click:Connect(function()
+NewTab.MouseButton1Click:Connect(function()
 for i,v in pairs(gloxploitprojecthubholder:GetChildren()) do
 				if v.Name == "HubForTab" then
 					v.Visible = false
