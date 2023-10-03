@@ -124,7 +124,7 @@ for i,v in pairs(gloxploitprojecthubholder:GetChildren()) do
 					v.Visible = false
 				end
 			end
-			Hub.Visible = true
+			HubForTab.Visible = true
 end)
 
 Library.Tabs = Library.Tabs + 1
