@@ -111,6 +111,7 @@ NewTab.TextSize = 16
 HubForTab.Name = "HubForTab"
 HubForTab.Parent = gloxploitprojecthubholder
 HubForTab.Active = true
+HubForTab.Visible = Library.Tabs == 0 and true or false
 HubForTab.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 HubForTab.BackgroundTransparency = 0
 HubForTab.Position = UDim2.new(0, 0, 0 ,0)
@@ -119,6 +120,13 @@ HubForTab.ScrollBarThickness = 0
 HubForTab.CanvasSize = UDim2.new(0, 0, 1, 0)
 
 NewTab.MouseButton1Click:Connect(function()
+for i,v in pairs(gloxploitprojecttabholder:GetDescendants()) do
+				if v.Name == "Tab" then
+					game:GetService("TweenService"):Create(v, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+					wait(0.5)
+					game:GetService("TweenService"):Create(v, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
+				end
+			end
 for i,v in pairs(gloxploitprojecthubholder:GetChildren()) do
 				if v.Name == "HubForTab" then
 					v.Visible = false
@@ -130,6 +138,29 @@ end)
 Library.Tabs = Library.Tabs + 1
 
 local Lib = {}
+
+function Lib:NewLabel(title)
+local Label = Instance.new("TextLabel")
+
+Label.Name = "Label"
+Label.Size = UDim2.new(0, 235, 0, 50)
+Label.Position = UDim2.new(0, 0, 0, 0)
+Label.BackgroundColor3 = Color3.fromRGB(50,50,50)
+Label.BorderColor3 = Color3.fromRGB(35,35,35)
+Label.BorderSizePixel = 1
+Label.Active = true
+Label.Draggable = false
+Label.Parent = HubForTab
+Label.Font = Enum.Font.SourceSansBold
+Label.Text = title
+Label.TextStrokeTransparency = 0.9
+Label.TextColor3 = Color3.fromRGB(255,255,255)
+Label.TextSize = 16
+
+function Lib:UpdateLabel(title)
+Label.Text = title
+end
+end
 
 function Lib:NewButton(title, callback)
 local Button = Instance.new("TextButton")
