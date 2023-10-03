@@ -73,8 +73,8 @@ gloxploitprojecthubholder.Parent = gloxploitprojectmain
 gloxploitprojecthubholder.Active = true
 gloxploitprojecthubholder.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 gloxploitprojecthubholder.BackgroundTransparency = 0
-gloxploitprojecthubholder.Position = UDim2.new(0, 175, 0, 50)
-gloxploitprojecthubholder.Size = UDim2.new(0, 245, 0, 225)
+gloxploitprojecthubholder.Position = UDim2.new(0, 185, 0, 50)
+gloxploitprojecthubholder.Size = UDim2.new(0, 235, 0, 225)
 gloxploitprojecthubholder.ScrollBarThickness = 0
 gloxploitprojecthubholder.CanvasSize = UDim2.new(0, 0, 1, 0)
 
@@ -103,7 +103,7 @@ NewTab.Active = true
 NewTab.Draggable = false
 NewTab.Parent = gloxploitprojecttabholder
 NewTab.Font = Enum.Font.SourceSansBold
-NewTab.Text = title or "Tab"
+NewTab.Text = title
 NewTab.TextStrokeTransparency = 0.9
 NewTab.TextColor3 = Color3.fromRGB(255,255,255)
 NewTab.TextSize = 16
@@ -114,7 +114,7 @@ HubForTab.Active = true
 HubForTab.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 HubForTab.BackgroundTransparency = 0
 HubForTab.Position = UDim2.new(0, 0, 0 ,0)
-HubForTab.Size = UDim2.new(0, 245, 0, 225)
+HubForTab.Size = UDim2.new(0, 235, 0, 225)
 HubForTab.ScrollBarThickness = 0
 HubForTab.CanvasSize = UDim2.new(0, 0, 1, 0)
 
@@ -135,7 +135,7 @@ function Lib:NewButton(title, callback)
 local Button = Instance.new("TextButton")
 
 Button.Name = "Button"
-Button.Size = UDim2.new(0, 245, 0, 50)
+Button.Size = UDim2.new(0, 235, 0, 50)
 Button.Position = UDim2.new(0, 0, 0, 0)
 Button.BackgroundColor3 = Color3.fromRGB(50,50,50)
 Button.BorderColor3 = Color3.fromRGB(35,35,35)
