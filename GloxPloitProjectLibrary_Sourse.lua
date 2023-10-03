@@ -95,7 +95,6 @@ local HubForTab = Instance.new("ScrollingFrame")
 
 NewTab.Name = "Tab"
 NewTab.Size = UDim2.new(0, 150, 0, 30)
-NewTab.Position = UDim2.new(0, 0, 0, 0)
 NewTab.BackgroundColor3 = Color3.fromRGB(50,50,50)
 NewTab.BorderColor3 = Color3.fromRGB(35,35,35)
 NewTab.BorderSizePixel = 1
@@ -127,7 +126,7 @@ for i,v in pairs(gloxploitprojecttabholder:GetDescendants()) do
 					game:GetService("TweenService"):Create(v, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
 				end
 			end
-for i,v in pairs(gloxploitprojecthubholder:GetChildren()) do
+for i,v in next, gloxploitprojecthubholder:GetChildren() do
 				if v.Name == "HubForTab" then
 					v.Visible = false
 				end
