@@ -95,12 +95,11 @@ NewTab.TextColor3 = Color3.fromRGB(255,255,255)
 NewTab.TextSize = 16
 
 HubForTab.Name = "HubForTab"
-HubForTab.Parent = gloxploitprojecthubholder
+HubForTab.Parent = gloxploitprojectmain
 HubForTab.Active = true
-HubForTab.Visible = Library.Tabs == 0 and true or false
 HubForTab.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 HubForTab.BackgroundTransparency = 0
-HubForTab.Position = UDim2.new(0, 0, 0 ,0)
+HubForTab.Position = UDim2.new(0, 195, 0 ,50)
 HubForTab.Size = UDim2.new(0, 235, 0, 225)
 
 NewTab.MouseButton1Click:Connect(function()
