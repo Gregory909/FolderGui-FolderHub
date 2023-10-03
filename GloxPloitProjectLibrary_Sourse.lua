@@ -24,10 +24,6 @@ gloxploitprojectmain.Active = true
 gloxploitprojectmain.Draggable = true
 gloxploitprojectmain.Parent = screengui
 
-local gloxploitprojectuicorner = Instance.new("UICorner")
-gloxploitprojectuicorner.Parent = gloxploitprojectmain
-gloxploitprojectuicorner.CornerRadius = 0.40
-
 local gloxploitprojecttitle = Instance.new("TextLabel")
 gloxploitprojecttitle.Name = "Title"
 gloxploitprojecttitle.Size = UDim2.new(0, 400, 0, 30)
