@@ -21,7 +21,7 @@ gui.Parent = game.CoreGui
 
 local holdermain = Instance.new("Frame")
 holdermain.Name = "HolderGui"
-holdermain.Size = UDim2.new(0, 500, 0, 300)
+holdermain.Size = UDim2.new(0, 2, 0, 2)
 holdermain.Position = UDim2.new(0.5, 0, 0.5, 0)
 holdermain.AnchorPoint = Vector2.new(0.5, 0.5)
 holdermain.BackgroundColor3 = Color3.fromRGB(25,25,25)
@@ -33,7 +33,11 @@ holdermain.Parent = gui
 
 local uicorner_1 = Instance.new("UICorner", holdermain)
 uicorner_1.CornerRadius = UDim.new(0, 10)
-
+wait(0.1)
+game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 2)}):Play()
+wait(2)
+game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 300)}):Play()
+wait(2)
 local origmain = Instance.new("Frame")
 origmain.Name = "GuiScript"
 origmain.Size = UDim2.new(0, 450, 0, 250)
@@ -48,9 +52,6 @@ origmain.Parent = holdermain
 local uicorner_2 = Instance.new("UICorner", origmain)
 uicorner_2.CornerRadius = UDim.new(0, 4)
 
-local tabsfolder = Instance.new("Folder", origmain)
-tabsfolder.Name = "TabsContainer"
-
 local tabcontainer = Instance.new("Frame", origmain)
 tabcontainer.Name = "TabContainer"
 tabcontainer.Size = UDim2.new(0, 150, 0, 225)
@@ -60,6 +61,7 @@ tabcontainer.BorderColor3 = Color3.new(0, 0, 0)
 tabcontainer.BorderSizePixel = 0
 tabcontainer.Active = true
 tabcontainer.Draggable = false
+tabcontainer.Visible = true
 
 local hubcontainer = Instance.new("Frame", origmain)
 hubcontainer.Name = "HubContainer"
@@ -70,6 +72,7 @@ hubcontainer.BorderColor3 = Color3.new(0, 0, 0)
 hubcontainer.BorderSizePixel = 0
 hubcontainer.Active = true
 hubcontainer.Draggable = false
+hubcontainer.Visible = true
 
 local titleofmain = Instance.new("TextLabel")
 titleofmain.Name = "Title"
@@ -117,7 +120,16 @@ titlehide.Text = "-"
 titlehide.Font = Enum.Font.SourceSans
 titlehide.TextColor3 = Color3.fromRGB(255,255,255)
 
-titleclose.MouseButton1Down:Connect(function()
+titleclose.MouseButton1Click:Connect(function()
+titlehide.Visible = false 
+titleclose.Visible = false
+titleofmain.Visible = false
+game:GetService("TweenService"):Create(origmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+wait(1.1)
+origmain.Visible = false
+wait(0.01)
+game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 2, 0, 2)}):Play()
+wait(1.5)
 for i,ui in pairs(game.CoreGui:GetChildren()) do
 if ui.Name == "GloxPloit" then
 ui:Destroy()
@@ -125,7 +137,7 @@ end
 end
 end)
 
-titlehide.MouseButton1Down:Connect(function()
+titlehide.MouseButton1Click:Connect(function()
 for i,elementofmain in pairs(game.CoreGui.GloxPloit.HolderGui:GetChildren()) do
 if elementofmain.Name == "GuiScript" and elementofmain.Parent.Size == UDim2.new(0, 500, 0, 300) and elementofmain.Visible == true then
 elementofmain.Title.Visible = false
@@ -594,7 +606,7 @@ game:GetService("TweenService"):Create(dropdownbuttoninlist, TweenInfo.new(0.2),
 end)
 
 dropdownbuttoninlist.MouseButton1Click:Connect(function()
-callback(v)
+callback(but)
 if dropdownlist.Size == UDim2.new(0, 300,0, 122) then
 					dropdownlist:TweenSize(UDim2.new(0, 300,0, 0), "InOut", "Sine", 0.2, true)
 					game:GetService("TweenService"):Create(dropdownbutton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 0}):Play()
@@ -612,3 +624,4 @@ return elements
 end
 return tabs
 end
+return library
