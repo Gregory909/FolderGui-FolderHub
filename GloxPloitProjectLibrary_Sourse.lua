@@ -6,12 +6,6 @@ end
 
 wait(1)
 
-local function moveto(obj, method, to, speed)
-    local info = TweenInfo.new(speed,Enum.EasingStyle.Linear)
-    local tween = game:GetService("TweenService"):Create(obj, info, {method = to})
-        tween:Play()
-end
-
 local library = {}
 
 function library:Main(title)
@@ -241,42 +235,6 @@ print(tab.Name)
 end)
 
 local elements = {}
-
-function elements:Label(text, color)
-local labelholder = Instance.new("Frame", tab)
-labelholder.Size = UDim2.new(0, 280, 0, 30)
-labelholder.Position = UDim2.new(0, 0, 0, 0)
-labelholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
-labelholder.BorderColor3 = Color3.fromRGB(23,23,23)
-labelholder.BorderSizePixel = 2
-labelholder.Active = true
-labelholder.Draggable = false
-
-local uicorner_4 = Instance.new("UICorner", labelholder)
-uicorner_4.CornerRadius = UDim.new(0, 6)
-
-local label = Instance.new("TextLabel", labelholder)
-label.Size = UDim2.new(0, 250, 0, 20)
-label.Position = UDim2.new(0, 15, 0, 5)
-label.BackgroundColor3 = Color3.fromRGB(30,30,30)
-label.BorderColor3 = Color3.fromRGB(23,23,23)
-label.BorderSizePixel = 0
-label.Active = true
-label.Draggable = false
-label.TextSize = 22
-label.Text = text
-label.Font = Enum.Font.SourceSans
-label.TextColor3 = color or Color3.fromRGB(255,255,255)
-
-local uicorner_5 = Instance.new("UICorner", label)
-uicorner_5.CornerRadius = UDim.new(0, 6)
-
-local LabelHeist = {}
-
-function LabelHeist:UpdateLabel(text, color)
-label.Text = text
-label.TextColor3 = color or Color3.fromRGB(255,255,255)
-end
 
 function elements:Button(text, callback)
 local buttonholder = Instance.new("Frame", tab)
@@ -618,6 +576,41 @@ end)
 end
 end
 
+function elements:Label(text, color)
+local labelholder = Instance.new("Frame", tab)
+labelholder.Size = UDim2.new(0, 280, 0, 30)
+labelholder.Position = UDim2.new(0, 0, 0, 0)
+labelholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
+labelholder.BorderColor3 = Color3.fromRGB(23,23,23)
+labelholder.BorderSizePixel = 2
+labelholder.Active = true
+labelholder.Draggable = false
+
+local uicorner_4 = Instance.new("UICorner", labelholder)
+uicorner_4.CornerRadius = UDim.new(0, 6)
+
+local label = Instance.new("TextLabel", labelholder)
+label.Size = UDim2.new(0, 250, 0, 20)
+label.Position = UDim2.new(0, 15, 0, 5)
+label.BackgroundColor3 = Color3.fromRGB(30,30,30)
+label.BorderColor3 = Color3.fromRGB(23,23,23)
+label.BorderSizePixel = 0
+label.Active = true
+label.Draggable = false
+label.TextSize = 22
+label.Text = text
+label.Font = Enum.Font.SourceSans
+label.TextColor3 = color or Color3.fromRGB(255,255,255)
+
+local uicorner_5 = Instance.new("UICorner", label)
+uicorner_5.CornerRadius = UDim.new(0, 6)
+
+local LabelHeist = {}
+
+function LabelHeist:UpdateLabel(text, color)
+label.Text = text
+label.TextColor3 = color or Color3.fromRGB(255,255,255)
+end
 return LabelHeist
 end
 return elements
