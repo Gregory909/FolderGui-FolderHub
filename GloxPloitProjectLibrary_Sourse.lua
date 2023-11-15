@@ -56,7 +56,7 @@ tabcontainer.BorderSizePixel = 0
 tabcontainer.Active = true
 tabcontainer.Draggable = false
 tabcontainer.Visible = true
-tabcontainer.CanvasSize = UDim2.new(1, 0, 0, 0)
+tabcontainer.CanvasSize = UDim2.new(0 ,0, 0, 9999)
 
 local hubcontainer = Instance.new("Frame", origmain)
 hubcontainer.Name = "HubContainer"
@@ -183,9 +183,46 @@ local uilistlayout1 = Instance.new("UIListLayout", tabcontainer)
 uilistlayout1.HorizontalAlignment = Enum.HorizontalAlignment.Center
 uilistlayout1.SortOrder = Enum.SortOrder.LayoutOrder
 
+function dragify(Frame)
+		dragToggle = nil
+		dragSpeed = nil
+		dragInput = nil
+		dragStart = nil
+		dragPos = nil
+		function updateInput(input)
+			Delta = input.Position - dragStart
+			Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+		end
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Frame.Position
+				input.Changed:Connect(function()
+					if (input.UserInputState == Enum.UserInputState.End) then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		Frame.InputChanged:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+				dragInput = input
+			end
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if (input == dragInput and dragToggle) then
+				updateInput(input)
+			end
+		end)
+	end
+
+	dragify(holdermain)
+
 local tabs = {}
 
-function tabs:Tab(title)
+function tabs:Tab(title, size)
 
 local tabbutton = Instance.new("TextButton")
 tabbutton.Size = UDim2.new(0, 150, 0, 25)
@@ -214,7 +251,7 @@ tab.BorderColor3 = Color3.fromRGB(10,10,10)
 tab.BorderSizePixel = 1
 tab.Active = true
 tab.Draggable = false
-tab.CanvasSize = UDim2.new(1, 0, 0, 0)
+tab.CanvasSize = UDim2.new(0, 0, 0, size) or UDim2.new(0, 0, 0, 1000)
 
 local uilistlayout2 = Instance.new("UIListLayout", tab)
 uilistlayout2.SortOrder = Enum.SortOrder.LayoutOrder
