@@ -46,7 +46,7 @@ origmain.Parent = holdermain
 local uicorner_2 = Instance.new("UICorner", origmain)
 uicorner_2.CornerRadius = UDim.new(0, 4)
 
-local tabcontainer = Instance.new("Frame", origmain)
+local tabcontainer = Instance.new("ScrollingFrame", origmain)
 tabcontainer.Name = "TabContainer"
 tabcontainer.Size = UDim2.new(0, 150, 0, 225)
 tabcontainer.Position = UDim2.new(0, 0, 0, 25)
@@ -56,6 +56,7 @@ tabcontainer.BorderSizePixel = 0
 tabcontainer.Active = true
 tabcontainer.Draggable = false
 tabcontainer.Visible = true
+tabcontainer.CanvasSize = UDim2.new(1, 0, 0, 0)
 
 local hubcontainer = Instance.new("Frame", origmain)
 hubcontainer.Name = "HubContainer"
@@ -213,6 +214,7 @@ tab.BorderColor3 = Color3.fromRGB(10,10,10)
 tab.BorderSizePixel = 1
 tab.Active = true
 tab.Draggable = false
+tab.CanvasSize = UDim2.new(1, 0, 0, 0)
 
 local uilistlayout2 = Instance.new("UIListLayout", tab)
 uilistlayout2.SortOrder = Enum.SortOrder.LayoutOrder
@@ -522,6 +524,7 @@ dropdownlist.BorderSizePixel = 1
 dropdownlist.Active = true
 dropdownlist.Draggable = false
 dropdownlist.Visible = false
+dropdownlist.CanvasSize = UDim2.new(1, 0, 0, 0)
 
 local uilistlayout2 = Instance.new("UIListLayout", dropdownlist)
 uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
