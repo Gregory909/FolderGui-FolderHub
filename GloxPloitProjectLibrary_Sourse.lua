@@ -56,7 +56,8 @@ tabcontainer.BorderSizePixel = 0
 tabcontainer.Active = true
 tabcontainer.Draggable = false
 tabcontainer.Visible = true
-tabcontainer.CanvasSize = UDim2.new(0 ,0, 0, 9999)
+tabcontainer.ScrollBarThickness = 0
+tabcontainer.CanvasSize = UDim2.new(0, 0, 1, 0)
 
 local hubcontainer = Instance.new("Frame", origmain)
 hubcontainer.Name = "HubContainer"
@@ -222,7 +223,7 @@ function dragify(Frame)
 
 local tabs = {}
 
-function tabs:Tab(title, size)
+function tabs:Tab(title)
 
 local tabbutton = Instance.new("TextButton")
 tabbutton.Size = UDim2.new(0, 150, 0, 25)
@@ -251,7 +252,8 @@ tab.BorderColor3 = Color3.fromRGB(10,10,10)
 tab.BorderSizePixel = 1
 tab.Active = true
 tab.Draggable = false
-tab.CanvasSize = UDim2.new(0, 0, 0, size) or UDim2.new(0, 0, 0, 1000)
+tab.ScrollBarThickness = 0
+tab.CanvasSize = UDim2.new(0, 0, 4, 0)
 
 local uilistlayout2 = Instance.new("UIListLayout", tab)
 uilistlayout2.SortOrder = Enum.SortOrder.LayoutOrder
