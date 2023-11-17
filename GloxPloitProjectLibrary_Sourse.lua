@@ -563,7 +563,8 @@ dropdownlist.BorderSizePixel = 1
 dropdownlist.Active = true
 dropdownlist.Draggable = false
 dropdownlist.Visible = false
-dropdownlist.CanvasSize = UDim2.new(1, 0, 0, 0)
+dropdownlist.CanvasSize = UDim2.new(0, 0, 1, 0)
+dropdownlist.ZIndex = 0
 
 local uilistlayout2 = Instance.new("UIListLayout", dropdownlist)
 uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
