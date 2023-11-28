@@ -28,10 +28,10 @@ holdermain.Parent = gui
 local uicorner_1 = Instance.new("UICorner", holdermain)
 uicorner_1.CornerRadius = UDim.new(0, 10)
 wait(0.1)
-game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 2)}):Play()
-wait(2)
-game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 300)}):Play()
-wait(2)
+game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 2)}):Play()
+wait(1)
+game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 300)}):Play()
+wait(1)
 local origmain = Instance.new("Frame")
 origmain.Name = "GuiScript"
 origmain.Size = UDim2.new(0, 450, 0, 250)
@@ -120,12 +120,12 @@ titleclose.MouseButton1Click:Connect(function()
 titlehide.Visible = false 
 titleclose.Visible = false
 titleofmain.Visible = false
-game:GetService("TweenService"):Create(origmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-wait(1.1)
+game:GetService("TweenService"):Create(origmain, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+wait(0.6)
 origmain.Visible = false
 wait(0.01)
-game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 2, 0, 2)}):Play()
-wait(1.5)
+game:GetService("TweenService"):Create(holdermain, TweenInfo.new(0.9, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 2, 0, 2)}):Play()
+wait(1)
 for i,ui in pairs(game.CoreGui:GetChildren()) do
 if ui.Name == "GloxPloit" then
 ui:Destroy()
@@ -142,8 +142,7 @@ elementofmain.TabContainer.Visible = false
 game:GetService("TweenService"):Create(elementofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
 wait(1)
 elementofmain.Visible = false
-game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 50)}):Play()
-wait(1.7)
+game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 50)}):Play()
 game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 50,0, 50)}):Play()
 wait(1)
 local toggleuilibrary = Instance.new("TextButton", elementofmain.Parent)
@@ -164,14 +163,13 @@ game:GetService("TweenService"):Create(toggleuilibrary, TweenInfo.new(0.4, Enum.
 wait(0.6)
 toggleuilibrary:Destroy()
 wait(0.2)
-game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 50)}):Play()
-wait(1.5)
-game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 300)}):Play()
+game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 50)}):Play()
+game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 300)}):Play()
 wait(1.5)
 elementofmain.Visible = true
 wait(0.2)
-game:GetService("TweenService"):Create(elementofmain, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-wait(2)
+game:GetService("TweenService"):Create(elementofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+wait(0.85)
 elementofmain.Title.Visible = true
 elementofmain.HubContainer.Visible = true
 elementofmain.TabContainer.Visible = true
@@ -226,6 +224,7 @@ local tabs = {}
 function tabs:Tab(title)
 
 local tabbutton = Instance.new("TextButton")
+tabbutton.Name = title
 tabbutton.Size = UDim2.new(0, 150, 0, 25)
 tabbutton.Position = UDim2.new(0, 0, 0, 0)
 tabbutton.BackgroundColor3 = Color3.fromRGB(27,27,27)
@@ -245,7 +244,7 @@ uicorner_3.CornerRadius = UDim.new(0, 3)
 
 local tab = Instance.new("ScrollingFrame", hubcontainer)
 tab.Name = title.."s Tab"
-tab.Size = UDim2.new(0, 300, 0, 225)
+tab.Size = UDim2.new(0, 1, 0, 225)
 tab.Position = UDim2.new(0, 0, 0, 0)
 tab.BackgroundColor3 = Color3.fromRGB(17,17,17)
 tab.BorderColor3 = Color3.fromRGB(10,10,10)
@@ -261,18 +260,12 @@ uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 tabbutton.MouseButton1Down:Connect(function()
 for i,v in next, hubcontainer:GetChildren() do
-        game:GetService("TweenService"):Create(v, TweenInfo.new(0.02, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-        wait(0.02)
-        v.Visible = false
+game:GetService("TweenService"):Create(v, TweenInfo.new(0.42, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 1, 0, 225)}):Play()
+wait(0.5)
+v.Visible = false
 end 
-wait(0.02)
-game:GetService("TweenService"):Create(tabbutton, TweenInfo.new(0.02, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(40,40,40)}):Play()
-wait(0.02)
-game:GetService("TweenService"):Create(tabbutton, TweenInfo.new(0.02, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(27,27,27)}):Play()
-wait(0.01)
 tab.Visible = true
-game:GetService("TweenService"):Create(tab, TweenInfo.new(0.02, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-print(tab.Name)
+game:GetService("TweenService"):Create(tab, TweenInfo.new(0.42, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 225)}):Play()
 end)
 
 local elements = {}
@@ -478,21 +471,12 @@ textbox.TextColor3 = Color3.fromRGB(255,255,255)
 local uicorner_14 = Instance.new("UICorner", textbox)
 uicorner_14.CornerRadius = UDim.new(0, 6)
 			textbox.FocusLost:Connect(function()
-			  if textbox.Text == "" then
-			    textbox.TextTrabsparency = 1
-			    wait(0.1)
-		        textbox.TextTransparency = 0
-		        callback(textbox.Text)
+			    callback(textbox.Text)
+			    textbox.TextTransparency = 1
+			    wait(0.3)
+			    textbox.Text = ""
 		        wait(0.1)
-		        textbox.Text = ""
-			   else
-			   textbox.TextTrabsparency = 1
-			    wait(0.1)
 		        textbox.TextTransparency = 0
-				callback(textbox.Text)
-				wait(0.1)
-				textbox.Text = ""
-				end
 			end)
 
 end
@@ -563,12 +547,11 @@ dropdownlist.BorderSizePixel = 1
 dropdownlist.Active = true
 dropdownlist.Draggable = false
 dropdownlist.Visible = false
-dropdownlist.CanvasSize = UDim2.new(0, 0, 1, 0)
-dropdownlist.ZIndex = 0
+dropdownlist.CanvasSize = UDim2.new(1, 0, 0, 0)
 
-local uilistlayout2 = Instance.new("UIListLayout", dropdownlist)
-uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-uilistlayout2.SortOrder = Enum.SortOrder.LayoutOrder
+local uilistlayout18 = Instance.new("UIListLayout", dropdownlist)
+uilistlayout18.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uilistlayout18.SortOrder = Enum.SortOrder.LayoutOrder
 
 dropdownbutton.MouseButton1Up:Connect(function()
 if dropdownlist.Size == UDim2.new(0, 300,0, 0) then
@@ -578,14 +561,13 @@ if dropdownlist.Size == UDim2.new(0, 300,0, 0) then
 				else
 					dropdownlist:TweenSize(UDim2.new(0, 300,0, 0), "InOut", "Sine", 0.2, true)
 					game:GetService("TweenService"):Create(dropdownbutton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 0}):Play()
-					wait(.2)
+					wait(0.2)
 					dropdownlist.Visible = false
 				end
 end)
 for _,but in pairs(option) do
 local dropdownbuttoninlist = Instance.new("TextButton", dropdownlist)
 dropdownbuttoninlist.Size = UDim2.new(0, 300, 0, 25)
-dropdownbuttoninlist.Position = UDim2.new(0, 0, 0, 0)
 dropdownbuttoninlist.BackgroundColor3 = Color3.fromRGB(32,32,32)
 dropdownbuttoninlist.BorderColor3 = Color3.fromRGB(20,20,20)
 dropdownbuttoninlist.BorderSizePixel = 2.5
@@ -594,6 +576,7 @@ dropdownbuttoninlist.Draggable = false
 dropdownbuttoninlist.Text = tostring(but)
 dropdownbuttoninlist.TextXAlignment = Enum.TextXAlignment.Left
 dropdownbuttoninlist.TextColor3 = Color3.fromRGB(255,255,255)
+dropdownbuttoninlist.ZIndex = 4
 
 local uicorner_19 = Instance.new("UICorner", dropdownbuttoninlist)
 uicorner_19.CornerRadius = UDim.new(0, 10)
