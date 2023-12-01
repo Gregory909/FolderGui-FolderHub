@@ -258,8 +258,8 @@ local uilistlayout2 = Instance.new("UIListLayout", tab)
 uilistlayout2.SortOrder = Enum.SortOrder.LayoutOrder
 uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
-tabbutton.MouseButton1Down:Connect(function()
-for i,v in next, hubcontainer:GetChildren() do
+tabbutton.MouseButton1Click:Connect(function()
+for i,v in pairs(hubcontainer:GetChildren()) do
 game:GetService("TweenService"):Create(v, TweenInfo.new(0.42, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 1, 0, 225)}):Play()
 wait(0.5)
 v.Visible = false
