@@ -260,10 +260,12 @@ uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 tabbutton.MouseButton1Click:Connect(function()
 for i,v in pairs(hubcontainer:GetChildren()) do
+if v.Name ~= title.."s Tab" then
 game:GetService("TweenService"):Create(v, TweenInfo.new(0.42, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 1, 0, 225)}):Play()
-wait(0.5)
+wait(0.42)
 v.Visible = false
 end 
+end
 tab.Visible = true
 game:GetService("TweenService"):Create(tab, TweenInfo.new(0.42, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 225)}):Play()
 end)
