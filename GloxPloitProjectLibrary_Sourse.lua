@@ -6,45 +6,63 @@ end
 
 wait(1)
 
+function changetext(file, totext)
+file.Text = totext
+end
+
 local library = {}
 
+function library:ToggleUi()
+
+end
 function library:Main(title)
 local gui = Instance.new("ScreenGui")
 gui.Name = "GloxPloit"
 gui.Parent = game.CoreGui
 
-local holdermain = Instance.new("Frame")
-holdermain.Name = "HolderGui"
-holdermain.Size = UDim2.new(0, 2, 0, 2)
-holdermain.Position = UDim2.new(0.5, 0, 0.5, 0)
-holdermain.AnchorPoint = Vector2.new(0.5, 0.5)
-holdermain.BackgroundColor3 = Color3.fromRGB(25,25,25)
-holdermain.BorderColor3 = Color3.fromRGB(30,30,30)
-holdermain.BorderSizePixel = 0
-holdermain.Active = true
-holdermain.Draggable = true
-holdermain.Parent = gui
+local titleofmain = Instance.new("TextLabel")
+titleofmain.Name = "MainTitle"
+titleofmain.Size = UDim2.new(0, 1, 0, 1)
+titleofmain.Position = UDim2.new(0.5, 0, 0.5, 0)
+titleofmain.AnchorPoint = Vector2.new(0.5,0.5)
+titleofmain.BackgroundColor3 = Color3.fromRGB(19,19,19)
+titleofmain.BorderColor3 = Color3.new(10,10,10)
+titleofmain.BorderSizePixel = 1
+titleofmain.Active = true
+titleofmain.Draggable = true
+titleofmain.Parent = gui
+titleofmain.TextSize = 22
+titleofmain.Text = title
+titleofmain.TextTransparency = 1
+titleofmain.Font = Enum.Font.SourceSans
+titleofmain.TextXAlignment = Enum.TextXAlignment.Left
+titleofmain.TextColor3 = Color3.fromRGB(255,255,255)
+titleofmain.ZIndex = 2
 
-local uicorner_1 = Instance.new("UICorner", holdermain)
-uicorner_1.CornerRadius = UDim.new(0, 10)
+local titlecorn = Instance.new("UICorner", titleofmain)
+titlecorn.CornerRadius = UDim.new(0,5)
+
 wait(0.1)
-game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 2)}):Play()
+game:GetService("TweenService"):Create(titleofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 2)}):Play()
 wait(1)
-game:GetService("TweenService"):Create(holdermain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500, 0, 300)}):Play()
+game:GetService("TweenService"):Create(titleofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 25)}):Play()
 wait(1)
+
+titleofmain.TextTransparency = 0
+
 local origmain = Instance.new("Frame")
 origmain.Name = "GuiScript"
 origmain.Size = UDim2.new(0, 450, 0, 250)
-origmain.Position = UDim2.new(0,25 , 0, 25)
+origmain.Position = UDim2.new(0,0,0,0)
 origmain.BackgroundColor3 = Color3.fromRGB(35,35,35)
 origmain.BorderColor3 = Color3.new(0, 0, 0)
 origmain.BorderSizePixel = 0
 origmain.Active = true
 origmain.Draggable = false
-origmain.Parent = holdermain
+origmain.Parent = titleofmain
 
 local uicorner_2 = Instance.new("UICorner", origmain)
-uicorner_2.CornerRadius = UDim.new(0, 4)
+uicorner_2.CornerRadius = UDim.new(0, 5)
 
 local tabcontainer = Instance.new("ScrollingFrame", origmain)
 tabcontainer.Name = "TabContainer"
@@ -57,7 +75,14 @@ tabcontainer.Active = true
 tabcontainer.Draggable = false
 tabcontainer.Visible = true
 tabcontainer.ScrollBarThickness = 0
-tabcontainer.CanvasSize = UDim2.new(0, 0, 1, 0)
+tabcontainer.CanvasSize = UDim2.new(0, 0, 0, 0)
+tabcontainer.AutomaticCanvasSize = Enum.AutomaticSize.Y
+tabcontainer.ClipsDescendants = true
+tabcontainer.BackgroundTransparency = 0
+tabcontainer.ScrollBarThickness = 0
+
+local tabscorn = Instance.new("UICorner", tabcontainer)
+tabscorn.CornerRadius = UDim.new(0,5)
 
 local hubcontainer = Instance.new("Frame", origmain)
 hubcontainer.Name = "HubContainer"
@@ -70,110 +95,46 @@ hubcontainer.Active = true
 hubcontainer.Draggable = false
 hubcontainer.Visible = true
 
-local titleofmain = Instance.new("TextLabel")
-titleofmain.Name = "Title"
-titleofmain.Size = UDim2.new(0, 450, 0, 25)
-titleofmain.Position = UDim2.new(0, 0, 0, 0)
-titleofmain.BackgroundColor3 = Color3.fromRGB(19,19,19)
-titleofmain.BorderColor3 = Color3.new(0, 0, 0)
-titleofmain.BorderSizePixel = 0
-titleofmain.Active = true
-titleofmain.Draggable = false
-titleofmain.Parent = origmain
-titleofmain.TextSize = 22
-titleofmain.Text = title
-titleofmain.Font = Enum.Font.SourceSans
-titleofmain.TextXAlignment = Enum.TextXAlignment.Left
-titleofmain.TextColor3 = Color3.fromRGB(255,255,255)
-
-local titleclose = Instance.new("TextButton")
-titleclose.Name = "Close Button"
-titleclose.Size = UDim2.new(0, 50, 0, 25)
-titleclose.Position = UDim2.new(0, 400, 0, 0)
-titleclose.BackgroundColor3 = Color3.fromRGB(255,19,19)
-titleclose.BorderColor3 = Color3.new(0, 0, 0)
-titleclose.BorderSizePixel = 0
-titleclose.Active = true
-titleclose.Draggable = false
-titleclose.Parent = origmain
-titleclose.TextSize = 25
-titleclose.Text = "X"
-titleclose.Font = Enum.Font.SourceSans
-titleclose.TextColor3 = Color3.fromRGB(255,255,255)
+local hubcorn = Instance.new("UICorner", hubcontainer)
+hubcorn.CornerRadius = UDim.new(0,5)
 
 local titlehide = Instance.new("TextButton")
 titlehide.Name = "Close Button"
 titlehide.Size = UDim2.new(0, 50, 0, 25)
-titlehide.Position = UDim2.new(0, 350, 0, 0)
+titlehide.Position = UDim2.new(0, 400, 0, 0)
 titlehide.BackgroundColor3 = Color3.fromRGB(50,50,50)
 titlehide.BorderColor3 = Color3.new(0, 0, 0)
 titlehide.BorderSizePixel = 0
 titlehide.Active = true
 titlehide.Draggable = false
-titlehide.Parent = origmain
+titlehide.Parent = titleofmain
 titlehide.TextSize = 25
-titlehide.Text = "-"
+titlehide.Text = "—"
 titlehide.Font = Enum.Font.SourceSans
 titlehide.TextColor3 = Color3.fromRGB(255,255,255)
+titlehide.ZIndex = 3
 
-titleclose.MouseButton1Click:Connect(function()
-titlehide.Visible = false 
-titleclose.Visible = false
-titleofmain.Visible = false
-game:GetService("TweenService"):Create(origmain, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-wait(0.6)
-origmain.Visible = false
-wait(0.01)
-game:GetService("TweenService"):Create(holdermain, TweenInfo.new(0.9, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 2, 0, 2)}):Play()
-wait(1)
-for i,ui in pairs(game.CoreGui:GetChildren()) do
-if ui.Name == "GloxPloit" then
-ui:Destroy()
-end
-end
-end)
+local titlehcorn = Instance.new("UICorner", titlehide)
+titlehcorn.CornerRadius = UDim.new(0,5)
 
 titlehide.MouseButton1Click:Connect(function()
-for i,elementofmain in pairs(game.CoreGui.GloxPloit.HolderGui:GetChildren()) do
-if elementofmain.Name == "GuiScript" and elementofmain.Parent.Size == UDim2.new(0, 500, 0, 300) and elementofmain.Visible == true then
-elementofmain.Title.Visible = false
-elementofmain.HubContainer.Visible = false
-elementofmain.TabContainer.Visible = false
-game:GetService("TweenService"):Create(elementofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-wait(1)
-elementofmain.Visible = false
-game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 50)}):Play()
-game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 50,0, 50)}):Play()
-wait(1)
-local toggleuilibrary = Instance.new("TextButton", elementofmain.Parent)
-toggleuilibrary.Size = UDim2.new(0, 50, 0, 50)
-toggleuilibrary.Draggable = false
-toggleuilibrary.Position = UDim2.new(0,50,0,0)
-toggleuilibrary.BackgroundColor3 = Color3.fromRGB(10,10,10)
-toggleuilibrary.BorderSizePixel = 0
-toggleuilibrary.Text = "+"
-toggleuilibrary.TextScaled = true
-toggleuilibrary.TextColor3 = Color3.fromRGB(255,255,255)
-toggleuilibrary.Font = Enum.Font.SourceSans
-toggleuilibrary.TextSize = 20
-
-toggleuilibrary.MouseButton1Down:Connect(function()
-wait(0.5)
-game:GetService("TweenService"):Create(toggleuilibrary, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-wait(0.6)
-toggleuilibrary:Destroy()
-wait(0.2)
-game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 50)}):Play()
-game:GetService("TweenService"):Create(elementofmain.Parent, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 500,0, 300)}):Play()
-wait(1.5)
-elementofmain.Visible = true
-wait(0.2)
-game:GetService("TweenService"):Create(elementofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-wait(0.85)
-elementofmain.Title.Visible = true
-elementofmain.HubContainer.Visible = true
-elementofmain.TabContainer.Visible = true
-end)
+if origmain.Size == UDim2.new(0, 450, 0, 250) then
+game:GetService("TweenService"):Create(origmain, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 0)}):Play()
+game:GetService("TweenService"):Create(tabcontainer, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 150, 0, 0)}):Play()
+game:GetService("TweenService"):Create(hubcontainer, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 0)}):Play()
+for _,guis in pairs(hubcontainer:GetChildren()) do
+if guis.ClassName ~= "UICorner" and guis.Size == UDim2.new(0,300,0,225) then
+game:GetService("TweenService"):Create(guis, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 0)}):Play()
+end
+end
+else
+game:GetService("TweenService"):Create(origmain, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 250)}):Play()
+game:GetService("TweenService"):Create(tabcontainer, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 150, 0, 225)}):Play()
+game:GetService("TweenService"):Create(hubcontainer, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 225)}):Play()
+for _,guis in pairs(hubcontainer:GetChildren()) do
+if guis.ClassName ~= "UICorner" and guis.Size == UDim2.new(0,300,0,0) then
+game:GetService("TweenService"):Create(guis, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 225)}):Play()
+end
 end
 end
 end)
@@ -181,6 +142,7 @@ end)
 local uilistlayout1 = Instance.new("UIListLayout", tabcontainer)
 uilistlayout1.HorizontalAlignment = Enum.HorizontalAlignment.Center
 uilistlayout1.SortOrder = Enum.SortOrder.LayoutOrder
+uilistlayout1.Padding = UDim.new(0.02, 1)
 
 function dragify(Frame)
 		dragToggle = nil
@@ -217,7 +179,7 @@ function dragify(Frame)
 		end)
 	end
 
-	dragify(holdermain)
+	dragify(titleofmain)
 
 local tabs = {}
 
@@ -240,11 +202,11 @@ tabbutton.TextXAlignment = Enum.TextXAlignment.Left
 tabbutton.TextColor3 = Color3.fromRGB(255,255,255)
 
 local uicorner_3 = Instance.new("UICorner", tabbutton)
-uicorner_3.CornerRadius = UDim.new(0, 3)
+uicorner_3.CornerRadius = UDim.new(0, 10)
 
 local tab = Instance.new("ScrollingFrame", hubcontainer)
 tab.Name = title.."s Tab"
-tab.Size = UDim2.new(0, 1, 0, 225)
+tab.Size = UDim2.new(0, 0, 0, 225)
 tab.Position = UDim2.new(0, 0, 0, 0)
 tab.BackgroundColor3 = Color3.fromRGB(17,17,17)
 tab.BorderColor3 = Color3.fromRGB(10,10,10)
@@ -252,18 +214,25 @@ tab.BorderSizePixel = 1
 tab.Active = true
 tab.Draggable = false
 tab.ScrollBarThickness = 0
-tab.CanvasSize = UDim2.new(0, 0, 4, 0)
+tab.Visible = false
+tab.CanvasSize = UDim2.new(0, 0, 0, 0)
+tab.AutomaticCanvasSize = Enum.AutomaticSize.Y
+tab.ClipsDescendants = true
+tab.BackgroundTransparency = 1
+tab.ScrollBarThickness = 0
 
 local uilistlayout2 = Instance.new("UIListLayout", tab)
 uilistlayout2.SortOrder = Enum.SortOrder.LayoutOrder
 uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uilistlayout2.Padding = UDim.new(0.02, 1)
 
 tabbutton.MouseButton1Click:Connect(function()
 for i,v in pairs(hubcontainer:GetChildren()) do
-if v.Name ~= title.."s Tab" then
-game:GetService("TweenService"):Create(v, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 1, 0, 225)}):Play()
-wait(0.1)
+if v.Name ~= title.."s Tab" and v.ClassName ~= "UICorner" and v.Size == UDim2.new(0,300,0,225) then
+game:GetService("TweenService"):Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 0)}):Play()
+wait(0.3)
 v.Visible = false
+v.Size = UDim2.new(0,0,0,225)
 end 
 end
 tab.Visible = true
@@ -290,7 +259,7 @@ button.Size = UDim2.new(0, 255, 0, 20)
 button.Position = UDim2.new(0, 10, 0, 5)
 button.BackgroundColor3 = Color3.fromRGB(30,30,30)
 button.BorderColor3 = Color3.fromRGB(23,23,23)
-button.BorderSizePixel = 0
+button.BorderSizePixel = 1
 button.Active = true
 button.Draggable = false
 button.TextSize = 22
@@ -301,16 +270,147 @@ button.TextColor3 = Color3.fromRGB(255,255,255)
 local uicorner_7 = Instance.new("UICorner", label)
 uicorner_7.CornerRadius = UDim.new(0, 6)
 
-button.MouseButton1Up:Connect(function()
-game:GetService("TweenService"):Create(buttonholder, TweenInfo.new(0.02, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(36, 36, 36)}):Play()
-game:GetService("TweenService"):Create(button, TweenInfo.new(0.02, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}):Play()
-wait(0.02)
-game:GetService("TweenService"):Create(buttonholder, TweenInfo.new(0.04, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(32, 32, 32)}):Play()
-game:GetService("TweenService"):Create(button, TweenInfo.new(0.04, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+button.MouseButton1Click:Connect(function()
+callback()
 end)
 
-button.MouseButton1Down:Connect(function()
-callback()
+end
+
+function elements:Slider(title, min,max,callback)
+local sliderholder = Instance.new("Frame", tab)
+sliderholder.Size = UDim2.new(0, 280, 0, 30)
+sliderholder.Position = UDim2.new(0, 0, 0, 0)
+sliderholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
+sliderholder.BorderColor3 = Color3.fromRGB(23,23,23)
+sliderholder.BorderSizePixel = 2
+sliderholder.Active = true
+sliderholder.Draggable = false
+
+local uicorner_29 = Instance.new("UICorner", sliderholder)
+uicorner_29.CornerRadius = UDim.new(0, 6)
+
+local sliderholdertext = Instance.new("Frame", sliderholder)
+sliderholdertext.Size = UDim2.new(0, 100, 0, 20)
+sliderholdertext.Position = UDim2.new(0, 10, 0, 5)
+sliderholdertext.BackgroundTransparency = 1
+sliderholdertext.BackgroundColor3 = Color3.fromRGB(30,30,30)
+sliderholdertext.BorderColor3 = Color3.fromRGB(23,23,23)
+sliderholdertext.BorderSizePixel = 0
+sliderholdertext.Active = true
+sliderholdertext.Draggable = false
+
+local uicorner_10 = Instance.new("UICorner", sliderholdertext)
+uicorner_10.CornerRadius = UDim.new(0, 6)
+
+local slidertext = Instance.new("TextLabel", sliderholdertext)
+slidertext.Size = UDim2.new(0, 100, 0, 20)
+slidertext.Position = UDim2.new(0, 0, 0, 0)
+slidertext.BackgroundColor3 = Color3.fromRGB(40,40,40)
+slidertext.BorderColor3 = Color3.fromRGB(23,23,23)
+slidertext.BorderSizePixel = 0
+slidertext.Active = true
+slidertext.Draggable = false
+slidertext.TextSize = 22
+slidertext.Text = title
+slidertext.TextXAlignment = Enum.TextXAlignment.Left
+slidertext.Font = Enum.Font.SourceSans
+slidertext.TextColor3 = Color3.fromRGB(255,255,255)
+
+local uicorner_11 = Instance.new("UICorner", slidertext)
+uicorner_11.CornerRadius = UDim.new(0, 6)
+
+local slidernotfilled = Instance.new("Frame", sliderholder)
+slidernotfilled.Size = UDim2.new(0, 165, 0, 10)
+slidernotfilled.Position = UDim2.new(0, 110, 0, 10)
+slidernotfilled.BackgroundColor3 = Color3.fromRGB(5,5,5)
+slidernotfilled.BorderColor3 = Color3.fromRGB(10, 10 ,10)
+slidernotfilled.BorderSizePixel = 0
+slidernotfilled.Active = true
+slidernotfilled.Draggable = false
+
+local uicorner_10 = Instance.new("UICorner", slidernotfilled)
+uicorner_10.CornerRadius = UDim.new(0, 20)
+
+local sliderfilled = Instance.new("Frame", slidernotfilled)
+sliderfilled.Size = UDim2.new(0, 1, 0, 10)
+sliderfilled.Position = UDim2.new(0, 0, 0, 0)
+sliderfilled.BackgroundColor3 = Color3.fromRGB(40,40,40)
+sliderfilled.BorderColor3 = Color3.fromRGB(10, 10 ,10)
+sliderfilled.BorderSizePixel = 0
+sliderfilled.Active = true
+sliderfilled.Draggable = false
+
+local uicorner_10 = Instance.new("UICorner", sliderfilled)
+uicorner_10.CornerRadius = UDim.new(0, 20)
+
+local sliderbuttonforsl = Instance.new("TextButton", sliderfilled)
+sliderbuttonforsl.Size = UDim2.new(0, 10, 0, 15)
+sliderbuttonforsl.Position = UDim2.new(0, (sliderfilled.Size.X.Offset) * ((160 - min) / (max - min)), 0, -5)
+sliderbuttonforsl.BackgroundColor3 = Color3.fromRGB(5,5,5)
+sliderbuttonforsl.BorderColor3 = Color3.fromRGB(255,255,255)
+sliderbuttonforsl.BorderSizePixel = 1
+sliderbuttonforsl.Active = true
+sliderbuttonforsl.Draggable = false
+sliderbuttonforsl.TextSize = 16
+sliderbuttonforsl.Text = ""
+sliderbuttonforsl.TextXAlignment = Enum.TextXAlignment.Left
+sliderbuttonforsl.Font = Enum.Font.SourceSans
+sliderbuttonforsl.TextColor3 = Color3.fromRGB(255,255,255)
+
+local uicorner_11 = Instance.new("UICorner", sluderbuttonforsl)
+uicorner_11.CornerRadius = UDim.new(0, 6)
+
+local sliderminmax = Instance.new("TextLabel", sliderholder)
+sliderminmax.Size = UDim2.new(0, 50, 0, 5)
+sliderminmax.Position = UDim2.new(0, 225, 0, 25)
+sliderminmax.BackgroundColor3 = Color3.fromRGB(10,10,10)
+sliderminmax.BorderColor3 = Color3.fromRGB(23,23,23)
+sliderminmax.BorderSizePixel = 0
+sliderminmax.Active = true
+sliderminmax.Draggable = false
+sliderminmax.TextSize = 10
+sliderminmax.Text = tonumber(min)
+sliderminmax.Font = Enum.Font.SourceSans
+sliderminmax.TextColor3 = Color3.fromRGB(255,255,255)
+
+local uicorner_11 = Instance.new("UICorner", sliderminmax)
+uicorner_11.CornerRadius = UDim.new(0, 6)
+
+sliderbuttonforsl.InputBegan:Connect(function(input)
+if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+local dragging = true
+local playermouse = game.Players.LocalPlayer:GetMouse()
+local minitial = input.Position.X
+local initial = sliderbuttonforsl.Position.X.Offset
+local delta_inbut = sliderbuttonforsl.AbsolutePosition.X - initial
+local SlidingFunction
+SlidingFunction = game:GetService("RunService").Heartbeat:Connect(function()
+if dragging then
+local xoffset = playermouse.X - delta_inbut - 3
+if xoffset > 165 then
+xoffset = 165
+elseif xoffset < 0 then
+xoffset = 0
+end
+sliderbuttonforsl.Position = UDim2.new(0, xoffset, 0, -5)
+sliderfilled.Size = UDim2.new(0, xoffset + 5 , 0, 10)
+sliderminmax.Text = tostring(math.round(min + ((max - min) * xoffset / 165)))
+else
+SlidingFunction:Disconnect()
+end
+end)
+input.Changed:Connect(function()
+if input.UserInputState == Enum.UserInputState.End then
+dragging = false
+end
+end)
+end
+end)
+
+sliderbuttonforsl.InputEnded:Connect(function(Inp)
+if Inp.UserInputType == Enum.UserInputType.MouseButton1 or Inp.UserInputType == Enum.UserInputType.Touch then
+callback(tonumber(sliderminmax.Text))
+end
 end)
 
 end
@@ -379,7 +479,7 @@ hidedtogglebutton.BorderSizePixel = 0
 hidedtogglebutton.Active = true
 hidedtogglebutton.Draggable = false
 hidedtogglebutton.Text = ""
-hidedtogglebutton.ZIndex = 0
+hidedtogglebutton.ZIndex = 2
 
 local uicorner_12 = Instance.new("UICorner", hidedtogglebutton)
 uicorner_12.CornerRadius = UDim.new(0, 50)
@@ -399,7 +499,7 @@ uicorner_11.CornerRadius = UDim.new(0, 75)
 
 local ToggleEnabled = false
 
-hidedtogglebutton.MouseButton1Down:Connect(function()
+hidedtogglebutton.MouseButton1Click:Connect(function()
 if ToggleEnabled == false then
 game:GetService("TweenService"):Create(togglecircus, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(48,255,48)}):Play()
 game:GetService("TweenService"):Create(togglecircus, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0, 28.2, 0, 0)}):Play()
@@ -543,7 +643,7 @@ uicorner_18.CornerRadius = UDim.new(0, 75)
 local dropdownlist = Instance.new("ScrollingFrame", dropdownholder)
 dropdownlist.Size = UDim2.new(0, 300, 0, 0)
 dropdownlist.Position = UDim2.new(0, 0, 0, 30)
-dropdownlist.BackgroundTransparency = 1.000
+dropdownlist.BackgroundTransparency = 0.75
 dropdownlist.BorderColor3 = Color3.fromRGB(10,10,10)
 dropdownlist.BorderSizePixel = 1
 dropdownlist.Active = true
@@ -622,7 +722,7 @@ label.Size = UDim2.new(0, 250, 0, 20)
 label.Position = UDim2.new(0, 15, 0, 5)
 label.BackgroundColor3 = Color3.fromRGB(30,30,30)
 label.BorderColor3 = Color3.fromRGB(23,23,23)
-label.BorderSizePixel = 0
+label.BorderSizePixel = 1
 label.Active = true
 label.Draggable = false
 label.TextSize = 22
