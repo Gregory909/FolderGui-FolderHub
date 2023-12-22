@@ -6,15 +6,8 @@ end
 
 wait(1)
 
-function changetext(file, totext)
-file.Text = totext
-end
-
 local library = {}
 
-function library:ToggleUi()
-
-end
 function library:Main(title)
 local gui = Instance.new("ScreenGui")
 gui.Name = "GloxPloit"
@@ -408,7 +401,7 @@ end
 end)
 
 sliderbuttonforsl.InputEnded:Connect(function(Inp)
-if Inp.UserInputType == Enum.UserInputType.MouseButton1 or Inp.UserInputType == Enum.UserInputType.Touch then
+if Inp.UserInputState == Enum.UserInputState.End then
 callback(tonumber(sliderminmax.Text))
 end
 end)
@@ -682,14 +675,6 @@ dropdownbuttoninlist.ZIndex = 4
 
 local uicorner_19 = Instance.new("UICorner", dropdownbuttoninlist)
 uicorner_19.CornerRadius = UDim.new(0, 10)
-
-dropdownbuttoninlist.MouseButton1Up:Connect(function()
-game:GetService("TweenService"):Create(dropdownbuttoninlist, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(60,60,60)}):Play()
-end)
-
-dropdownbuttoninlist.MouseButton1Down:Connect(function()
-game:GetService("TweenService"):Create(dropdownbuttoninlist, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(32,32,32)}):Play()
-end)
 
 dropdownbuttoninlist.MouseButton1Click:Connect(function()
 callback(but)
