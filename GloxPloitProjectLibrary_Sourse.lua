@@ -400,10 +400,8 @@ end)
 end
 end)
 
-sliderbuttonforsl.InputEnded:Connect(function(Inp)
-if Inp.UserInputState == Enum.UserInputState.End then
+sliderbuttonforsl.InputChanged:Connect(function()
 callback(tonumber(sliderminmax.Text))
-end
 end)
 
 end
