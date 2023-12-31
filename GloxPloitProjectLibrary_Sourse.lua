@@ -18,22 +18,22 @@ titleofmain.Name = "MainTitle"
 titleofmain.Size = UDim2.new(0, 1, 0, 1)
 titleofmain.Position = UDim2.new(0.5, 0, 0.5, 0)
 titleofmain.AnchorPoint = Vector2.new(0.5,0.5)
-titleofmain.BackgroundColor3 = Color3.fromRGB(19,19,19)
+titleofmain.BackgroundColor3 = Color3.fromRGB(15,15,15)
 titleofmain.BorderColor3 = Color3.new(10,10,10)
-titleofmain.BorderSizePixel = 1
+titleofmain.BorderSizePixel = 0
 titleofmain.Active = true
 titleofmain.Draggable = true
 titleofmain.Parent = gui
 titleofmain.TextSize = 22
 titleofmain.Text = title
-titleofmain.TextTransparency = 1
-titleofmain.Font = Enum.Font.SourceSans
+titleofmain.TextTransparency = 0
+titleofmain.Font = Enum.Font.Gotham
 titleofmain.TextXAlignment = Enum.TextXAlignment.Left
 titleofmain.TextColor3 = Color3.fromRGB(255,255,255)
 titleofmain.ZIndex = 2
 
 local titlecorn = Instance.new("UICorner", titleofmain)
-titlecorn.CornerRadius = UDim.new(0,5)
+titlecorn.CornerRadius = UDim.new(0,3)
 
 wait(0.1)
 game:GetService("TweenService"):Create(titleofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 2)}):Play()
@@ -41,13 +41,11 @@ wait(1)
 game:GetService("TweenService"):Create(titleofmain, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 25)}):Play()
 wait(1)
 
-titleofmain.TextTransparency = 0
-
 local origmain = Instance.new("Frame")
 origmain.Name = "GuiScript"
 origmain.Size = UDim2.new(0, 450, 0, 250)
 origmain.Position = UDim2.new(0,0,0,0)
-origmain.BackgroundColor3 = Color3.fromRGB(35,35,35)
+origmain.BackgroundColor3 = Color3.fromRGB(10,10,10)
 origmain.BorderColor3 = Color3.new(0, 0, 0)
 origmain.BorderSizePixel = 0
 origmain.Active = true
@@ -55,7 +53,17 @@ origmain.Draggable = false
 origmain.Parent = titleofmain
 
 local uicorner_2 = Instance.new("UICorner", origmain)
-uicorner_2.CornerRadius = UDim.new(0, 5)
+uicorner_2.CornerRadius = UDim.new(0, 0.1)
+
+local uistroke1 = Instance.new("UIStroke", origmain)
+uistroke1.Thickness = 5
+uistroke1.Color = Color3.fromRGB(10,10,10)
+
+local uigrand2 = Instance.new("UIGradient", uistroke1)
+uigrand2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(28,18,18))}
+
+local uigrand3 = Instance.new("UIGradient", origmain)
+uigrand3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(10,1,1))}
 
 local tabcontainer = Instance.new("ScrollingFrame", origmain)
 tabcontainer.Name = "TabContainer"
@@ -75,7 +83,7 @@ tabcontainer.BackgroundTransparency = 0
 tabcontainer.ScrollBarThickness = 0
 
 local tabscorn = Instance.new("UICorner", tabcontainer)
-tabscorn.CornerRadius = UDim.new(0,5)
+tabscorn.CornerRadius = UDim.new(0,0.1)
 
 local hubcontainer = Instance.new("Frame", origmain)
 hubcontainer.Name = "HubContainer"
@@ -103,7 +111,7 @@ titlehide.Draggable = false
 titlehide.Parent = titleofmain
 titlehide.TextSize = 25
 titlehide.Text = "—"
-titlehide.Font = Enum.Font.SourceSans
+titlehide.Font = Enum.Font.Gotham
 titlehide.TextColor3 = Color3.fromRGB(255,255,255)
 titlehide.ZIndex = 3
 
@@ -112,7 +120,7 @@ titlehcorn.CornerRadius = UDim.new(0,5)
 
 titlehide.MouseButton1Click:Connect(function()
 if origmain.Size == UDim2.new(0, 450, 0, 250) then
-game:GetService("TweenService"):Create(origmain, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 0)}):Play()
+game:GetService("TweenService"):Create(origmain, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 450, 0, 25)}):Play()
 game:GetService("TweenService"):Create(tabcontainer, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 150, 0, 0)}):Play()
 game:GetService("TweenService"):Create(hubcontainer, TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 300, 0, 0)}):Play()
 for _,guis in pairs(hubcontainer:GetChildren()) do
@@ -135,7 +143,7 @@ end)
 local uilistlayout1 = Instance.new("UIListLayout", tabcontainer)
 uilistlayout1.HorizontalAlignment = Enum.HorizontalAlignment.Center
 uilistlayout1.SortOrder = Enum.SortOrder.LayoutOrder
-uilistlayout1.Padding = UDim.new(0.02, 1)
+uilistlayout1.Padding = UDim.new(0.03, 1)
 
 function dragify(Frame)
 		dragToggle = nil
@@ -195,7 +203,7 @@ tabbutton.TextXAlignment = Enum.TextXAlignment.Left
 tabbutton.TextColor3 = Color3.fromRGB(255,255,255)
 
 local uicorner_3 = Instance.new("UICorner", tabbutton)
-uicorner_3.CornerRadius = UDim.new(0, 10)
+uicorner_3.CornerRadius = UDim.new(0, 3)
 
 local tab = Instance.new("ScrollingFrame", hubcontainer)
 tab.Name = title.."s Tab"
@@ -217,7 +225,7 @@ tab.ScrollBarThickness = 0
 local uilistlayout2 = Instance.new("UIListLayout", tab)
 uilistlayout2.SortOrder = Enum.SortOrder.LayoutOrder
 uilistlayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-uilistlayout2.Padding = UDim.new(0.02, 1)
+uilistlayout2.Padding = UDim.new(0.03, 1)
 
 tabbutton.MouseButton1Click:Connect(function()
 for i,v in pairs(hubcontainer:GetChildren()) do
@@ -238,7 +246,7 @@ function elements:Button(text, callback)
 local buttonholder = Instance.new("Frame", tab)
 buttonholder.Size = UDim2.new(0, 280, 0, 30)
 buttonholder.Position = UDim2.new(0, 0, 0, 0)
-buttonholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
+buttonholder.BackgroundColor3 = Color3.fromRGB(10,1,1)
 buttonholder.BorderColor3 = Color3.fromRGB(23,23,23)
 buttonholder.BorderSizePixel = 2
 buttonholder.Active = true
@@ -246,6 +254,16 @@ buttonholder.Draggable = false
 
 local uicorner_6 = Instance.new("UICorner", buttonholder)
 uicorner_6.CornerRadius = UDim.new(0, 6)
+
+local uistrokebutton = Instance.new("UIStroke", buttonholder)
+uistrokebutton.Thickness = 3
+uistrokebutton.Color = Color3.fromRGB(10,10,10)
+
+local uigrandstrokebutton = Instance.new("UIGradient", uistrokebutton)
+uigrandstrokebutton.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(28,18,18))}
+
+local uigrandbutton = Instance.new("UIGradient", buttonholder)
+uigrandbutton.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(10,1,1))}
 
 local button = Instance.new("TextButton", buttonholder)
 button.Size = UDim2.new(0, 255, 0, 20)
@@ -273,7 +291,7 @@ function elements:Slider(title, min,max,callback)
 local sliderholder = Instance.new("Frame", tab)
 sliderholder.Size = UDim2.new(0, 280, 0, 30)
 sliderholder.Position = UDim2.new(0, 0, 0, 0)
-sliderholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
+sliderholder.BackgroundColor3 = Color3.fromRGB(10,10,10)
 sliderholder.BorderColor3 = Color3.fromRGB(23,23,23)
 sliderholder.BorderSizePixel = 2
 sliderholder.Active = true
@@ -281,6 +299,16 @@ sliderholder.Draggable = false
 
 local uicorner_29 = Instance.new("UICorner", sliderholder)
 uicorner_29.CornerRadius = UDim.new(0, 6)
+
+local uistrokeslid = Instance.new("UIStroke", sliderholder)
+uistrokeslid.Thickness = 5
+uistrokeslid.Color = Color3.fromRGB(10,10,10)
+
+local uigrandstrslid = Instance.new("UIGradient", uistrokeslid)
+uigrandstrlid.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(28,18,18))}
+
+local uigrandslid = Instance.new("UIGradient", sliderholder)
+uigrandslide.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(10,1,1))}
 
 local sliderholdertext = Instance.new("Frame", sliderholder)
 sliderholdertext.Size = UDim2.new(0, 100, 0, 20)
@@ -410,7 +438,7 @@ function elements:Toggle(title, callback)
 local toggleholder = Instance.new("Frame", tab)
 toggleholder.Size = UDim2.new(0, 280, 0, 30)
 toggleholder.Position = UDim2.new(0, 0, 0, 0)
-toggleholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
+toggleholder.BackgroundColor3 = Color3.fromRGB(10,1,1)
 toggleholder.BorderColor3 = Color3.fromRGB(23,23,23)
 toggleholder.BorderSizePixel = 2
 toggleholder.Active = true
@@ -418,6 +446,16 @@ toggleholder.Draggable = false
 
 local uicorner_8 = Instance.new("UICorner", toggleholder)
 uicorner_8.CornerRadius = UDim.new(0, 6)
+
+local uistroketoggle = Instance.new("UIStroke", origmain)
+uistroketoggle.Thickness = 5
+uistroketoggle.Color = Color3.fromRGB(10,10,10)
+
+local uigrandstroketoggle = Instance.new("UIGradient", uistroketoggle)
+uigrandstroketoggle.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(28,18,18))}
+
+local uigrandtoggle = Instance.new("UIGradient", toggleholder)
+uigrandtoggle.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(10,1,1))}
 
 local toggletext1 = Instance.new("Frame", toggleholder)
 toggletext1.Size = UDim2.new(0, 255, 0, 20)
@@ -509,7 +547,7 @@ function elements:Textbox(title, callback)
 local textboxholder = Instance.new("Frame", tab)
 textboxholder.Size = UDim2.new(0, 280, 0, 30)
 textboxholder.Position = UDim2.new(0, 0, 0, 0)
-textboxholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
+textboxholder.BackgroundColor3 = Color3.fromRGB(10,10,10)
 textboxholder.BorderColor3 = Color3.fromRGB(23,23,23)
 textboxholder.BorderSizePixel = 2
 textboxholder.Active = true
@@ -517,6 +555,16 @@ textboxholder.Draggable = false
 
 local uicorner_12 = Instance.new("UICorner", textboxholder)
 uicorner_12.CornerRadius = UDim.new(0, 6)
+
+local uistroketextboxh = Instance.new("UIStroke", textboxholder)
+uistroketextboxh.Thickness = 5
+uistroketextboxh.Color = Color3.fromRGB(10,10,10)
+
+local uigrandstroketextb = Instance.new("UIGradient", uistroketextboxh)
+uigrandstroketextb.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(28,18,18))}
+
+local uigrandtextb = Instance.new("UIGradient", textboxholder)
+uigrandtextb.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(10,1,1))}
 
 local textboxtext1 = Instance.new("Frame", textboxholder)
 textboxtext1.Size = UDim2.new(0, 255, 0, 20)
@@ -578,7 +626,7 @@ function elements:Dropdown(title, option, callback)
 local dropdownholder = Instance.new("Frame", tab)
 dropdownholder.Size = UDim2.new(0, 280, 0, 30)
 dropdownholder.Position = UDim2.new(0, 0, 0, 0)
-dropdownholder.BackgroundColor3 = Color3.fromRGB(32,32,32)
+dropdownholder.BackgroundColor3 = Color3.fromRGB(10,10,10)
 dropdownholder.BorderColor3 = Color3.fromRGB(23,23,23)
 dropdownholder.BorderSizePixel = 2
 dropdownholder.Active = true
@@ -586,6 +634,16 @@ dropdownholder.Draggable = false
 
 local uicorner_15 = Instance.new("UICorner", dropdownholder)
 uicorner_15.CornerRadius = UDim.new(0, 6)
+
+local uistrokedrp = Instance.new("UIStroke", dropdowmholder)
+uistrokedrp.Thickness = 5
+uistrokedrp.Color = Color3.fromRGB(10,10,10)
+
+local uigranddrpt = Instance.new("UIGradient", uistroke1drp?
+uigranddrpt.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(28,18,18))}
+
+local uigranddrpg = Instance.new("UIGradient", origmain)
+uigranddrpg.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(10,1,1))}
 
 local dropdowntext1 = Instance.new("Frame", dropdownholder)
 dropdowntext1.Size = UDim2.new(0, 255, 0, 20)
@@ -645,6 +703,7 @@ dropdownlist.CanvasSize = UDim2.new(1, 0, 0, 0)
 local uilistlayout18 = Instance.new("UIListLayout", dropdownlist)
 uilistlayout18.HorizontalAlignment = Enum.HorizontalAlignment.Center
 uilistlayout18.SortOrder = Enum.SortOrder.LayoutOrder
+uilistlayout18.Padding = UDim.new(0.03, 1)
 
 dropdownbutton.MouseButton1Up:Connect(function()
 if dropdownlist.Size == UDim2.new(0, 300,0, 0) then
@@ -699,6 +758,16 @@ labelholder.Draggable = false
 
 local uicorner_4 = Instance.new("UICorner", labelholder)
 uicorner_4.CornerRadius = UDim.new(0, 6)
+
+local uistroke1 = Instance.new("UIStroke", origmain)
+uistroke1.Thickness = 5
+uistroke1.Color = Color3.fromRGB(10,10,10)
+
+local uigrand2 = Instance.new("UIGradient", uistroke1)
+uigrand2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(28,18,18))}
+
+local uigrand3 = Instance.new("UIGradient", origmain)
+uigrand3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)), ColorSequenceKeypoint.new(1, Color3.fromRGB(10,1,1))}
 
 local label = Instance.new("TextLabel", labelholder)
 label.Size = UDim2.new(0, 250, 0, 20)
