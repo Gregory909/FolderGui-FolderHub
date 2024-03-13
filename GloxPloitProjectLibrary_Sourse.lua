@@ -40,7 +40,7 @@ cir.ImageColor3 = color
 local N_X = cir.AbsolutePosition.X
 local N_Y = cir.AbsolutePosition.Y
 cir.Position = UDim2.new(0,N_X,0,N_Y)
-local uicorner789 = Instance.new("UICorner", cur)
+local uicorner789 = Instance.new("UICorner", cir)
 uicorner789.CornerRadius = UDim.new(0, 6)
 local sz = 0
 if But.AbsoluteSize.X > cir.AbsoluteSize.Y then
