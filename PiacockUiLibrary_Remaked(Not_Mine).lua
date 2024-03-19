@@ -17,6 +17,41 @@ local Mouse = lp:GetMouse()
 local viewport = workspace.CurrentCamera.ViewportSize
 local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
 
+function dragify(Frame)
+		dragToggle = nil
+		dragSpeed = nil
+		dragInput = nil
+		dragStart = nil
+		dragPos = nil
+		function updateInput(input)
+			Delta = input.Position - dragStart
+			Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+		end
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Frame.Position
+				input.Changed:Connect(function()
+					if (input.UserInputState == Enum.UserInputState.End) then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		Frame.InputChanged:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+				dragInput = input
+			end
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if (input == dragInput and dragToggle) then
+				updateInput(input)
+			end
+		end)
+	end
+
 local Library = {}
 
 function Library:validate(defaults, brackets)
@@ -62,35 +97,8 @@ function Library:CreateLib(brackets)
 		GUI["6g"]["Name"] = [[Drag]];
 		GUI["6g"]["Active"] = true
 		GUI["6g"] = GUI["6g"]
-		local dragging = false
-		local dragInput, mousePos, framePos
-
-		GUI["6g"].InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 then
-				dragging = true
-				mousePos = input.Position
-				framePos = GUI["6g"].Position
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		GUI["6g"].InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement then
-				dragInput = input
-			end
-		end)
-
-		input.InputChanged:Connect(function(input)
-			if input == dragInput and dragging then
-				local delta = input.Position - mousePos
-				GUI["6g"].Position  = UDim2.new(framePos.X.Scale, framePos.X.Offset + delta.X, framePos.Y.Scale, framePos.Y.Offset + delta.Y)
-			end
-		end)
+		
+		dragify(GUI["6g"])
 
 		-- StarterGui.Peacock.HideFrames
 		GUI["5e"] = Instance.new("TextButton", GUI["1"]);
@@ -419,14 +427,10 @@ function Library:CreateLib(brackets)
 				end
 			end)
 
-			uis.InputBegan:Connect(function(input, gpe)
-				if gpe then return end
-
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			uis.MouseButton1Click:Connect(function()
 					if Tab.Hover then
 						Tab:Activate()
 					end
-				end
 			end)
 
 			if GUI.CurrentTab == nil then
