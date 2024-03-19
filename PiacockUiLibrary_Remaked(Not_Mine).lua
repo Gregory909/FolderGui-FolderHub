@@ -1,4 +1,7 @@
--- Warning: This Ui Is Not Maded By Me, Its Just Got Modifed For Mobiles Users By Gregory909; Official Developer Of Piacock Ui Library: God_Stando
+-- Credits to Original Dev Piacock Ui Lib: God_Stand
+-- Modifed by Gregory909 ,thats can supports mobile
+-- Enjoy;)
+
 
 -- Services
 local players = game:GetService("Players")
@@ -92,7 +95,7 @@ function Library:CreateLib(brackets)
 		-- StarterGui.Peacock.HideFrames
 		GUI["5e"] = Instance.new("TextButton", GUI["1"]);
 		GUI["5e"]["TextSize"] = 15;
-		GUI["5e"]["BackgroundColor3"] = Color3.fromRGB(19,19,19);
+		GUI["5e"]["BackgroundColor3"] = Color3.fromRGB(10,10,10);
 		GUI["5e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
 		GUI["5e"]["Size"] = UDim2.new(0.134, 0, 0.034, 0);
 		GUI["5e"]["Name"] = [[HideFrames]];
@@ -109,7 +112,7 @@ function Library:CreateLib(brackets)
 
 		-- StarterGui.Peacock.Main
 		GUI["2"] = Instance.new("Frame", GUI["6g"]);
-		GUI["2"]["BackgroundColor3"] = Color3.fromRGB(10,10,10);
+		GUI["2"]["BackgroundColor3"] = Color3.fromRGB(20,20,20);
 		GUI["2"]["AnchorPoint"] = Vector2.new(0, 0)
 		GUI["2"]["Size"] = UDim2.new(0, 525, 0, 318);
 		GUI["2"]["Position"] = UDim2.fromOffset(0, 0, 0);
@@ -122,7 +125,7 @@ function Library:CreateLib(brackets)
 		-- StarterGUI.Peacock.Main.ContentContainer
 		GUI["1b"] = Instance.new("Frame", GUI["2"]);
 		GUI["1b"]["BorderSizePixel"] = 0;
-		GUI["1b"]["BackgroundColor3"] = Color3.fromRGB(20,20,20);
+		GUI["1b"]["BackgroundColor3"] = Color3.fromRGB(17,17,17);
 		GUI["1b"]["AnchorPoint"] = Vector2.new(1, 0);
 		GUI["1b"]["BackgroundTransparency"] = 1;
 		GUI["1b"]["Size"] = UDim2.new(1, -132, 1, -42);
@@ -148,12 +151,12 @@ function Library:CreateLib(brackets)
 		-- StarterGUI.Peacock.Main.ContentContainer.Fade.UIGradient
 		GUI["5b"] = Instance.new("UIGradient", GUI["5a"]);
 		GUI["5b"]["Rotation"] = 90;
-		GUI["5b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(19,19,19)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 0, 0))};
+		GUI["5b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(29,29,29)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 0, 0))};
 
 		-- StarterGui.Peacock.Main.TopBar
 		GUI["5"] = Instance.new("Frame", GUI["2"]);
 		GUI["5"]["BorderSizePixel"] = 0;
-		GUI["5"]["BackgroundColor3"] = Color3.fromRGB(15,15,15);
+		GUI["5"]["BackgroundColor3"] = Color3.fromRGB(11,11,11);
 		GUI["5"]["Size"] = UDim2.new(0, 525, 0, 30);
 		GUI["5"]["Position"] = UDim2.new(-0.0007851123809814453, 0, -0.00313471257686615, 0);
 		GUI["5"]["Name"] = [[TopBar]];
@@ -164,7 +167,7 @@ function Library:CreateLib(brackets)
 		-- StarterGui.Peacock.Main.TopBar.Extension
 		GUI["7"] = Instance.new("Frame", GUI["5"]);
 		GUI["7"]["BorderSizePixel"] = 0;
-		GUI["7"]["BackgroundColor3"] = Color3.fromRGB(15,15,15);
+		GUI["7"]["BackgroundColor3"] = Color3.fromRGB(11,11,11);
 		GUI["7"]["AnchorPoint"] = Vector2.new(0, 1);
 		GUI["7"]["Size"] = UDim2.new(1, 0, 0.5, 0);
 		GUI["7"]["Position"] = UDim2.new(0, 0, 1, 0);
@@ -243,7 +246,7 @@ function Library:CreateLib(brackets)
 		-- StarterGui.Peacock.Main.Navigation
 		GUI["d"] = Instance.new("Frame", GUI["2"]);
 		GUI["d"]["BorderSizePixel"] = 0;
-		GUI["d"]["BackgroundColor3"] = Color3.fromRGB(137, 66, 9);
+		GUI["d"]["BackgroundColor3"] = Color3.fromRGB(14,14,14);
 		GUI["d"]["Size"] = UDim2.new(0, 120, 1, -30);
 		GUI["d"]["Position"] = UDim2.new(0, 0, 0, 30);
 		GUI["d"]["Name"] = [[Navigation]];
@@ -273,14 +276,14 @@ function Library:CreateLib(brackets)
 		-- StarterGui.Peacock.Main.Navigation.Hide
 		GUI["i"] = Instance.new("Frame", GUI["d"]);
 		GUI["i"]["BorderSizePixel"] = 0;
-		GUI["i"]["BackgroundColor3"] = Color3.fromRGB(137, 66, 9);
+		GUI["i"]["BackgroundColor3"] = Color3.fromRGB(13,13,13);
 		GUI["i"]["Size"] = UDim2.new(1, 0, 0, 20);
 		GUI["i"]["Name"] = [[Hide]];
 
 		-- StarterGui.Peacock.Main.Navigation.Hide2
 		GUI["j"] = Instance.new("Frame", GUI["d"]);
 		GUI["j"]["BorderSizePixel"] = 0;
-		GUI["j"]["BackgroundColor3"] = Color3.fromRGB(137, 66, 9);
+		GUI["j"]["BackgroundColor3"] = Color3.fromRGB(18,18,18);
 		GUI["j"]["AnchorPoint"] = Vector2.new(1, 0);
 		GUI["j"]["Size"] = UDim2.new(0, 20, 1, 0);
 		GUI["j"]["Position"] = UDim2.new(1, 0, 0, 0);
@@ -416,10 +419,14 @@ function Library:CreateLib(brackets)
 				end
 			end)
 
-			uis.MouseButton1Click:Connect(function()
+			uis.InputBegan:Connect(function(input, gpe)
+				if gpe then return end
+
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
 					if Tab.Hover then
 						Tab:Activate()
 					end
+				end
 			end)
 
 			if GUI.CurrentTab == nil then
@@ -442,7 +449,7 @@ function Library:CreateLib(brackets)
 			do
 				-- StarterGui.Peacock.Main.ContentContainer.HomeTab.Button
 				Button["1d"] = Instance.new("Frame", Tab["1c"]);
-				Button["1d"]["BackgroundColor3"] = Color3.fromRGB(20,20,20);
+				Button["1d"]["BackgroundColor3"] = Color3.fromRGB(137, 66, 9);
 				Button["1d"]["Size"] = UDim2.new(1, 0, 0, 32);
 				Button["1d"]["Name"] = [[Button]];
 
@@ -502,18 +509,46 @@ function Library:CreateLib(brackets)
 			-- Logic
 			do
 				Button["1d"].MouseEnter:Connect(function()
+					Button.Hover = true
+
 					Library:tween(Button["1f"], {Color = Color3.fromRGB(102, 102, 102)})
 				end)
 
 				Button["1d"].MouseLeave:Connect(function()
+					Button.Hover = false
+
+					if not Button.MouseDown then
 						Library:tween(Button["1f"], {Color = Color3.fromRGB(82, 82, 82)})
+					end
 				end)
 
-				uis.MouseButton1Click:Connect(function()
-						Library:tween(Button["1d"], {BackgroundColor3 = Color3.fromRGB(40,40,40)})
+				uis.InputBegan:Connect(function(input, gpe)
+					if gpe then return end
+
+					if input.UserInputType == Enum.UserInputType.MouseButton1 and Button.Hover then
+						Button.MouseDown = true
+						Library:tween(Button["1d"], {BackgroundColor3 = Color3.fromRGB(100, 48, 5)})
 						Library:tween(Button["1f"], {Color = Color3.fromRGB(200, 200, 200)})
 						brackets.callback()
+					end
 				end)
+
+				uis.InputEnded:Connect(function(input, gpe)
+					if gpe then return end
+
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						Button.MouseDown = false
+
+						if Button.Hover then
+							Library:tween(Button["1d"], {BackgroundColor3 = Color3.fromRGB(137, 66, 9)})
+							Library:tween(Button["1f"], {Color = Color3.fromRGB(102, 102, 102)})
+						else
+							Library:tween(Button["1d"], {BackgroundColor3 = Color3.fromRGB(137, 66, 9)})
+							Library:tween(Button["1f"], {Color = Color3.fromRGB(82, 82, 82)})
+						end
+					end
+				end)
+			end
 
 			return Button
 		end
