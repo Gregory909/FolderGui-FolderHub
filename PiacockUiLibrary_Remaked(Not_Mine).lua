@@ -332,6 +332,20 @@ function Library:CreateLib(brackets)
 			Tab["11"]["Name"] = brackets.name;
 			Tab["11"]["Font"] = Enum.Font.Ubuntu;
 			Tab["11"]["BackgroundTransparency"] = 1;
+			
+			Tab["999"] = Instance.new("TextLabel", Tab(["11"]);
+			Tab["999"]["ZIndex"] = 0;
+			Tab["999"]["BorderSizePixel"] = 0;
+			Tab["999"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+			Tab["999"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Tab["999"]["TextSize"] = 12;
+			Tab["999"]["TextColor3"] = Color3.fromRGB(200, 200, 200);
+			Tab["999"]["Size"] = UDim2.new(1, 0, 0, 24);
+			Tab["999"]["Text"] = brackets.name;
+			Tab["999"]["Name"] = brackets.name;
+			Tab["999"]["Font"] = Enum.Font.Ubuntu;
+			Tab["999"]["BackgroundTransparency"] = 1;
+			Tab["999"]["TextTransparency"] = 1;
 
 			-- StarterGui.Peacock.Main.Navigation.ButtonHolder.Inactive.UIPadding
 			Tab["12"] = Instance.new("UIPadding", Tab["11"]);
@@ -409,7 +423,7 @@ function Library:CreateLib(brackets)
 
 		-- Codes Stuff
 		do
-			Tab["11"].MouseEnter:Connect(function()
+			Tab["999"].MouseEnter:Connect(function()
 				Tab.Hover = true
 
 				if not Tab.Active then
@@ -418,7 +432,7 @@ function Library:CreateLib(brackets)
 				end
 			end)
 
-			Tab["11"].MouseLeave:Connect(function()
+			Tab["999"].MouseLeave:Connect(function()
 				Tab.Hover = false
 
 				if not Tab.Active then
@@ -427,7 +441,7 @@ function Library:CreateLib(brackets)
 				end
 			end)
 
-			Tab["11"].MouseButton1Click:Connect(function()
+			Tab["999"].MouseButton1Click:Connect(function()
 					if Tab.Hover then
 						Tab:Activate()
 					end
