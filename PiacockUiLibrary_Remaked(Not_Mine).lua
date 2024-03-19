@@ -427,7 +427,7 @@ function Library:CreateLib(brackets)
 				end
 			end)
 
-			uis.MouseButton1Click:Connect(function()
+			Tab["11"].MouseButton1Click:Connect(function()
 					if Tab.Hover then
 						Tab:Activate()
 					end
